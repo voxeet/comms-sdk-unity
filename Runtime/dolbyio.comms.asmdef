@@ -1,0 +1,21 @@
+{
+    "name": "DolbyI0.Comms.Unity",
+    "references": [
+        "Unity.VisualScripting.Core",
+        "Unity.VisualScripting.Core.Editor",
+        "Unity.VisualScripting.Flow",
+        "Unity.VisualScripting.Flow.Editor",
+        "Unity.VisualScripting.Shared.Editor",
+        "Unity.VisualScripting.State",
+        "Unity.VisualScripting.State.Editor"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
