@@ -12,7 +12,7 @@ namespace DolbyIO.Comms.Unity
     public class DemoUnit : ConferenceUnit
     {
         [DoNotSerialize]
-        public ValueInput SpatialAudio;
+        public ValueInput AudioStyle;
 
         protected override void Definition()
         {
@@ -21,12 +21,12 @@ namespace DolbyIO.Comms.Unity
             InputTrigger = ControlInputCoroutine(nameof(InputTrigger), Demo);
             OutputTrigger = ControlOutput(nameof(OutputTrigger));
 
-            SpatialAudio = ValueInput<bool>(nameof(SpatialAudio), true);
+            AudioStyle = ValueInput<SpatialAudioStyle>(nameof(AudioStyle), SpatialAudioStyle.Individual);
         }
 
         private IEnumerator Demo(Flow flow)
         {
-            _sdk.Conference.DemoAsync(flow.GetValue<bool>(SpatialAudio)).Wait();
+            _sdk.Conference.DemoAsync(flow.GetValue<SpatialAudioStyle>(AudioStyle)).Wait();
            
             var scale = flow.GetValue<Vector3>(Scale);
             var forward = flow.GetValue<Vector3>(Forward);
