@@ -368,8 +368,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Token","value":{"$content":"","$type":"System.String"},"typeHandle":{"Identification":"System.String,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Token","value":{"$content":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkb2xieS5pbyIsImlhdCI6MTY3MzM1ODkxNCwic3ViIjoiblIwLW5WaVB2SUVoV1NqNHRsM0Ezdz09Iiwic2NvcGUiOiJzZXNzaW9uIiwib2lkIjoiNmE1MjRmMDktMTI2NS00NmRkLTkzNDItY2FkZjM2ZGE3YmU4IiwiYmlkIjoiOGEzNjljN2I3ZTc1OTNhYzAxN2U3YTA2MmQwNTFlZGQiLCJhaWQiOiI4MmNiMjFkYS00YjQ4LTQ5ZDgtOTU1NS0zYWU3ZWZiNDExZDciLCJhdXRob3JpdGllcyI6WyJST0xFX0NVU1RPTUVSIiwiUk9MRV9URVNUIl0sImV4cCI6MTY3MzM2MjUxNH0.yZL4LsVg6RCJkp8134F60MxCWBYIvvWlVGLCJFuiXPqK1cAVPoLiHt4PVeAf-mCiSMh06ZBC75fyDOfKuj-R-Q","$type":"System.String"},"typeHandle":{"Identification":"System.String,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"AudioStyle","value":{"$content":"Individual","$type":"DolbyIO.Comms.SpatialAudioStyle"},"typeHandle":{"Identification":"DolbyIO.Comms.SpatialAudioStyle,
+      DolbyIO.Comms.Sdk, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
 --- !u!114 &797394573
 MonoBehaviour:
@@ -1048,22 +1049,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1762682258}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1762682262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762682261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: 319f12f0c93444d38871d436a5b892cb, type: 2}
 --- !u!114 &1762682263
 MonoBehaviour:
   m_ObjectHideFlags: 0
