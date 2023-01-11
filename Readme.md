@@ -2,6 +2,8 @@
 
 With the Dolby.io Virtual World plugin for Unity, you can easily integrate Dolby.io Spatial Audio, powered by Dolby Atmos technology into your virtual world applications.
 
+You can find the plugin documentation here: [Online documentation](https://api-references.dolby.io/comms-sdk-dotnet/documentation/unity/getting-started/installation.html)
+
 ### Prerequisites
 - Apple MacOS x64 or Microsoft Windows 10+ x64.
 - A Dolby.io account. If you do not have an account, you can [sign up](https://dolby.io/signup) for a free account.
