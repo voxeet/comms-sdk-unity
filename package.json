@@ -14,6 +14,11 @@
       "voice",
       "spatial"
   ],
+  "samples": [{
+    "displayName": "Reference Sample Scenes",
+    "description": "Dolby.io Communications samples",
+    "path": "Samples"
+  }],
   "author": {
       "name": "DolbyIO",
       "email": "customer@dolby.io",
