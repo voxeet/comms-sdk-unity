@@ -17,7 +17,7 @@
   "samples": [{
     "displayName": "Reference Sample Scenes",
     "description": "Dolby.io Communications samples",
-    "path": "Samples"
+    "path": "Samples~"
   }],
   "author": {
       "name": "DolbyIO",
