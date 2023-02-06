@@ -1,0 +1,16 @@
+{
+    "name": "DolbyI0.Comms.Unity.Samples",
+    "references": [
+        "DolbyIO.Comms.Sdk",
+        "DolbyI0.Comms.Unity"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

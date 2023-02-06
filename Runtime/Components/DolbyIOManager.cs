@@ -38,15 +38,10 @@ namespace DolbyIO.Comms.Unity
         [Tooltip("The elapsed time between two call to set position in s.")]
         public float PositionDuration = 0.3f;
 
-        [Tooltip("A GameObject to get the local player position from.")]
-        public GameObject PositionSource;
-
         [Tooltip("The elapsed time between two call to set direction in s.")]
         public float DirectionDuration = 0.05f;
 
-        [Tooltip("A GameObject to get the local player direction from.")]
-        public GameObject DirectionSource;
-        
+        public AudioListener AudioListener;
 
         /// <summary>
         /// For convenience during early development and prototyping, a method is provided for you to 
@@ -99,6 +94,14 @@ namespace DolbyIO.Comms.Unity
             }
         }
 
+        void Start()
+        {
+            if (!AudioListener)
+            {
+                AudioListener = FindObjectOfType<AudioListener>();
+            }
+        }
+
         void Update()
         {
             lock(_backlog)
@@ -119,7 +122,7 @@ namespace DolbyIO.Comms.Unity
 
         private void UpdatePosition()
         {
-            if (PositionSource)
+            if (AudioListener)
             {
                 _timePosition += Time.deltaTime;
 
@@ -127,7 +130,7 @@ namespace DolbyIO.Comms.Unity
                 {
                     _timePosition = 0.0f;
 
-                    var position = PositionSource.transform.position;
+                    var position = AudioListener.gameObject.transform.position;
                     _sdk.Conference.SetSpatialPositionAsync
                     (
                         _sdk.Session.User.Id,
@@ -143,7 +146,7 @@ namespace DolbyIO.Comms.Unity
 
         private void UpdateDirection()
         {
-            if (DirectionSource)
+            if (AudioListener)
             {
                 _timeDirection += Time.deltaTime;
 
@@ -151,7 +154,7 @@ namespace DolbyIO.Comms.Unity
                 {
                     _timeDirection = 0.0f;
 
-                    var direction = DirectionSource.transform.rotation.eulerAngles;
+                    var direction = AudioListener.gameObject.transform.rotation.eulerAngles;
                     _sdk.Conference.SetSpatialDirectionAsync
                     (
                         new System.Numerics.Vector3(direction.x, direction.y, direction.z)
