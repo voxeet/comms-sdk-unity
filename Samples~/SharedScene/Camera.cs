@@ -21,8 +21,6 @@ public class Camera : MonoBehaviour
                 
         this.gameObject.transform.Rotate(Input.GetAxis("Mouse Y") * mouseSensitivity, Input.GetAxis("Mouse X") * mouseSensitivity, 0.0f);
 
-        Debug.Log(Input.GetAxis("Mouse Y"));
-
         if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0))
         {
             Cursor.lockState = CursorLockMode.Locked;
