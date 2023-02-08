@@ -6,9 +6,6 @@
   "description": "The DolbyIO Virtual World Plugin for Unity",
   "documentationUrl": "https://api-references.dolby.io/comms-sdk-dotnet/documentation/unity/unity.html",
   "licensesUrl": "https://github.com/DolbyIO/comms-sdk-dotnet/blob/main/LICENSE",
-  "dependencies": {
-
-  },
   "keywords": [
       "audio",
       "voice",
@@ -28,5 +25,8 @@
     "type": "git",
     "url": "https://github.com/DolbyIO/comms-sdk-dotnet",
     "directory": "dolbyio.comms.unity"
+  },
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.0.2"
   }
 }
