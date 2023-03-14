@@ -26,12 +26,4 @@ https://github.com/DolbyIO/comms-sdk-unity.git
 
 - Download latest plugin from the [release](https://github.com/DolbyIO/comms-sdk-dotnet/releases) page.
 - Unzip the package into a local folder.
-- Select **Add package from the disk**, navigate to the local folder and select `package.json` file. 
-
-> ⓘ On MacOS, it is necessary to unquarantine SDK libraries. Otherwise, quarantine attributes prevent their usage. The simplest way to unquarantine the SDK library is to strip the quarantine attributes recursively for all the files in the package. Follow these steps:
->1. In the Package Manager, select the plugin, right click and click on **Reveal in finder**
->2. In the finder window, click on the **Settings** icon and pick **New Terminal Tab at Folder**
->2. Run this command: 
->```
->xattr -d -r com.apple.quarantine .
->```
+- Select **Add package from the disk**, navigate to the local folder and select `package.json` file.
