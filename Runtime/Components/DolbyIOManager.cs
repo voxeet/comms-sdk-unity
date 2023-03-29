@@ -18,7 +18,7 @@ namespace DolbyIO.Comms.Unity
     [Inspectable]
     public class DolbyIOManager : MonoBehaviour
     {
-        private static DolbyIOSDK _sdk = new DolbyIOSDK();
+        private static DolbyIOSDK _sdk = new DolbyIOSDK(ComponentName.Unity);
         private static List<Action> _backlog = new List<Action>();
 
         private static HttpClient _client = new HttpClient();

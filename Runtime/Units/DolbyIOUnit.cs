@@ -96,7 +96,7 @@ namespace DolbyIO.Comms.Unity
 
             _sdk.MediaDevice.AudioDeviceChanged = new AudioDeviceChangedEventHandler
             (
-                (AudioDevice device, bool noDevice) =>
+                (DeviceIdentity device, bool noDevice) =>
                 {
                     DolbyIOManager.QueueOnMainThread(() => EventBus.Trigger(EventNames.AudioDeviceChangedEvent, device));
                 }
