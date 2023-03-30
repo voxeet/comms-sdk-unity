@@ -1,0 +1,12 @@
+name: Package Unity Plugin
+on: workflow_dispatch
+
+jobs:
+  package:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dolbyio-comms-unity-plugin
+          path: ${{github.workspace}}/
