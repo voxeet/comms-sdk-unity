@@ -1,0 +1,1641 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DolbyIO.Comms.Sdk</name>
+    </assembly>
+    <members>
+        <member name="T:DolbyIO.Comms.ConferenceAccessPermissions">
+            <summary>
+            The ConferenceAccessPermissions enum contains the available permissions for application users who are invited to a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.Invite">
+            <summary> 
+            Allows a participant to invite other participants to a conference. 
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.Join">
+            <summary>
+            Allows a participant to join a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.SendAudio">
+            <summary>
+            Allows a participant to send an audio stream during a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.SendVideo">
+            <summary>
+            Allows a participant to send a video stream during a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.ShareScreen">
+            <summary>
+            Allows a participant to share their screen during a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.ShareVideo">
+            <summary>
+            Allows a participant to share a video file during a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.ShareFile">
+            <summary>
+             Allows a participant to share a file during a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.SendMessage">
+            <summary>
+            Allows a participant to send a message to other participants during a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.Record">
+            <summary>
+            Allows a participant to record a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.Stream">
+            <summary>
+            Allows a participant to stream a conference.
+            </summary>    
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.Kick">
+            <summary>
+             Allows a participant to kick other participants from a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceAccessPermissions.UpdatePermissions">
+            <summary>
+            Allows a participant to update permissions of other participants.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.ConferenceStatus">
+            <summary>
+            The ConferenceStatus enum gathers possible statuses of a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceStatus.Creating">
+            <summary>
+            The SDK is creating a new conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceStatus.Created">
+            <summary>
+            The conference is created.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceStatus.Joining">
+            <summary>
+            The local participant is joining a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceStatus.Joined">
+            <summary>
+            The local participant successfully joined the conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceStatus.Leaving">
+            <summary>
+            The local participant is leaving the conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceStatus.Left">
+            <summary>
+            The local participant left the conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceStatus.Destroyed">
+            <summary>
+            The conference is destroyed on the Dolby.io server.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceStatus.Error">
+            <summary>
+            A conference error occurred.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.DeviceDirection">
+            <summary>
+            The DeviceDirection enum gathers the possible types of devices.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.DeviceDirection.None">
+            <summary>
+            A device that does not capture or play audio.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.DeviceDirection.Input">
+            <summary>
+            A device that captures audio, for example, a microphone.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.DeviceDirection.Output">
+            <summary>
+            A device that plays audio, for example, a speaker.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.DeviceDirection.Both">
+            <summary>
+            A device that captures and plays audio, for example, a headset.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.LogLevel">
+            <summary>
+            The LogLevel enum gathers logging levels to set. The logging levels allow classifying the
+            entries in the log files in terms of urgency to help to control the amount of
+            logged information.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.LogLevel.Off">
+            <summary>
+            Disables logging.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.LogLevel.Error">
+            <summary>
+            Generates logs only when an error occurs that does not allow
+            the SDK to function properly.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.LogLevel.Warning">
+            <summary>
+            Generates logs when the SDK detects an
+            unexpected problem but is still able to work as usual.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.LogLevel.Info">
+            <summary>
+            Generates an informative number of logs.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.LogLevel.Debug">
+            <summary>
+            Generates a high number of logs to provide
+            diagnostic information in a detailed manner.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.LogLevel.Verbose">
+            <summary>
+            Generates the highest number of logs,
+            including HTTP requests.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.ParticipantStatus">
+            <summary>
+            The ParticipantStatus enum gathers the possible statuses of a conference participant.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantStatus.Reserved">
+            <summary>
+            The participant has been invited to a conference and is waiting for an invitation.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantStatus.Connecting">
+            <summary>
+            The participant has received a conference invitation and is connecting to the conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantStatus.OnAir">
+            <summary>
+            The participant has successfully connected to the conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantStatus.Decline">
+            <summary>
+            The invited participant has declined the conference invitation.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantStatus.Inactive">
+            <summary>
+            The participant does not send any audio, video, or screen-share stream to the conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantStatus.Left">
+            <summary>
+            The participant has left the conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantStatus.Warning">
+            <summary>
+            The participant is experiencing a peer connection problem.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantStatus.Error">
+            <summary>
+            The participant cannot connect to the conference due to a peer connection failure.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.ParticipantType">
+            <summary>
+            The ParticipantType enum gathers the possible participant types.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.User">
+            <summary>
+            The participant who can send and receive an audio and video stream during a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.Listener">
+            <summary>
+            The participant who can receive audio and video streams, but cannot send any stream to a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.Speaker">
+            <summary>
+            A deprecated type.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.PSTN">
+            <summary>
+            A participant who connected to the conference using Public Switched Telephone Network (PSTN).
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.Mixer">
+            <summary>
+            A special participant who joins a conference to record it.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.DVCS">
+            <summary>
+            A deprecated type.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.None">
+            <summary>
+            A participant who does not have an assigned type.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.Robot">
+            <summary>
+            A USER who is present during a replay of a recorded conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.RobotSpeaker">
+            <summary>
+            A deprecated type.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.RobotListener">
+            <summary>
+            A LISTENER who is present during a replay of a recorded conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.RobotPSTN">
+            <summary>
+            A PSTN participant who is present during a replay of a recorded conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.RobotMixer">
+            <summary>
+            A MIXER who is present during a replay of a recorded conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantType.RobotNone">
+            <summary>
+            A participant who does not have an assigned type during a replay of a recorded conference.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.SpatialAudioStyle">
+            <summary>
+            The SpatialAudioStyle enum gathers the possible spatial audio styles of the conference. Setting
+            SpatialAudioStyle is possible only if the DolbyVoice flag is set to true.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.SpatialAudioStyle.None">
+            <summary>
+            Disables spatial audio in a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.SpatialAudioStyle.Individual">
+            <summary>
+            Sets the spatial location that is based on the spatial scene, local participant's position, and remote participants' positions. This allows a client to control the position using the local, self-contained logic. However, the client has to communicate a large set of requests constantly to the server, which increases network traffic, log subsystem pressure, and complexity of the client-side application. This option is selected by default. We recommend this mode for A/V congruence scenarios in video conferencing and similar applications.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.SpatialAudioStyle.Shared">
+             <summary>
+             Sets the spatial location that is based on the spatial scene and the local participant's position, while the relative positions among participants are calculated by the Dolby.io server. This way, the spatial scene is shared by all participants, so that each client can set a position and participate in the shared scene. This approach simplifies communication between the client and the server and decreases network traffic. We recommend this mode for virtual space scenarios, such as 2D or 3D games, trade shows, virtual museums, water cooler scenarios, etc.
+            
+             **Note**: The shared style currently does not support recording conferences.
+             </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.ListenMode">
+            <summary>
+            The listening mode for listeners.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ListenMode.Regular">
+            <summary>
+            Receive multiple streams.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ListenMode.RtsMixed">
+            <summary>
+            Receive a realtime mixed stream.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoFrame">
+            <summary>
+            The VideoFrame object wraps the decoded ARGB8888 video frames.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoFrame.Width">
+            <summary>
+            The width of the video frame.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoFrame.Height">
+            <summary>
+            The height of the video frame.
+            </summary>
+        </member>
+        <member name="P:DolbyIO.Comms.VideoFrame.IsInvalid">
+            <inheritdoc/>
+        </member>
+        <member name="M:DolbyIO.Comms.VideoFrame.ReleaseHandle">
+            <inheritdoc/>
+        </member>
+        <member name="M:DolbyIO.Comms.VideoFrame.GetBuffer">
+            <summary>
+            Gets a copy of the native video frame as a byte array.
+            </summary>
+            <returns>A byte array containing the video frame.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.DeviceIdentity">
+            <summary>
+            An Internal representation of an <see cref="T:DolbyIO.Comms.AudioDevice"/> identity.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.AudioDevice">
+            <summary>
+            The AudioDevice class contains a platform-agnostic description of an audio device.
+            </summary>
+            @ingroup device_management
+        </member>
+        <member name="F:DolbyIO.Comms.AudioDevice.Identity">
+            <summary>
+            The unique identifier of the audio device.
+            </summary>
+            <returns>The identifier.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.AudioDevice.Name">
+            <summary>
+            The name of the audio device.
+            </summary>
+            <returns>The name of the device.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.AudioDevice.Direction">
+            <summary>
+            Information whether the device is the input or output device.
+            </summary>
+            <returns>Information whether the device is the input or output device.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.AudioDevice.Equals(DolbyIO.Comms.AudioDevice)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DolbyIO.Comms.AudioDevice.Equals(DolbyIO.Comms.DeviceIdentity)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DolbyIO.Comms.Conference">
+            <summary>
+            The Conference class contains information about a conference. This structure provides
+            conference details that are required to join a specific conference. The SDK
+            returns Conference to describe the created or joined conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.Conference.Id">
+            <summary>
+            The unique conference identifier.
+            </summary>
+            <returns>The conference identifier.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.Conference.Alias">
+            <summary>
+            The conference alias. The alias must be a logical and unique string that consists
+            of up to 250 characters, such as letters, digits, and symbols other than #.
+            The alias is case insensitive, which means that using "foobar" and "FOObar"
+            aliases refers to the same conference. The alias is optional in the case
+            of using the conference ID.
+            </summary>
+            <returns>The conference alias.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.Conference.IsNew">
+            <summary>
+            A boolean that indicates whether the conference represented by the object has been just created.
+            </summary>
+            <returns>If true, the conference is new.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.Conference.Status">
+            <summary>
+            The current status of the conference.
+            </summary>
+            <returns>The conference status.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.Conference.SpatialAudioStyle">
+            <summary>
+            The spatial audio style used in the joined conference.
+            </summary>
+            <returns>The spatial audio style.</returns>
+        </member>
+        <member name="P:DolbyIO.Comms.Conference.Permissions">
+            <summary>
+            Permissions that allow a conference participant to perform limited
+            actions during a protected conference.
+            </summary>
+            <returns>The conference permissions.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.ConferenceOptions">
+            <summary>
+            The ConferenceOptions class provides additional
+            information about a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceOptions.Params">
+            <summary>
+            The conference parameters.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceOptions.Alias">
+            <summary>
+            The conference alias.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.ConferenceParams">
+            <summary>
+            The ConferenceParams class gathers conference parameters.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceParams.DolbyVoice">
+            <summary>
+            A boolean value that indicates whether the SDK should create a Dolby Voice
+            conference where each participant receives one audio stream.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceParams.Stats">
+            <summary>
+            A boolean that indicates whether the conference
+            should include additional statistics.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConferenceParams.SpatialAudioStyle">
+            <summary>
+            An enum that defines how the spatial location is communicated
+            between the SDK and the Dolby.io server.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.ConnectionOptions">
+            <summary>
+            The ConnectionOptions class contains options that define how the application expects to join a
+            conference in terms of media preference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConnectionOptions.MaxVideoForwarding">
+            <summary>
+            The maximum number of video streams that may be transmitted to the SDK. Valid parameter values 
+            are between 0 and 25.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConnectionOptions.ConferenceAccessToken">
+            <summary>
+            The conference access token that is required to join a protected conference if
+            the conference is created using the [create](ref:conference#operation-create-conference)
+            REST API. While calling the join or listen method, the application has to externally
+            fetch the token and provide it to the SDK.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConnectionOptions.SpatialAudio">
+            <summary>
+            A boolean that enables spatial audio for the joining participant. This boolean must be set to
+            true if spatial audio style is enabled. For more information, refer to our sample
+            application code.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ConnectionOptions.Simulcast">
+            <summary>
+            Enables simulcast support in the conference.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.JoinOptions">
+            <summary>
+            The JoinOptions class gathers options for joining a conference as a user
+            who can send and receive media.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.JoinOptions.Connection">
+            <summary>
+            The options for connecting to the conference.
+            </summary>
+            <returns>The connection options.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.JoinOptions.Constraints">
+            <summary>
+            The media constraints for the user.
+            </summary>
+            <returns>The media constraints.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.ListenOptions">
+            <summary>
+            The ListenOptions class gathers options for joining a conference as listener
+            who can only receive media.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ListenOptions.Connection">
+            <summary>
+            The options for connecting to the conference.
+            </summary>
+            <returns>The connection options.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.ListenOptions.Mode">
+            <summary>
+            The listening mode.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.MediaConstraints">
+            <summary>
+            The MediaConstraints class contains the local media constraints for an application joining a conference.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.MediaConstraints.Audio">
+            <summary>
+            A boolean that indicates whether the application should
+            capture the local audio and send it to the conference.
+            </summary>
+            <returns>If true, the SDK will capture audio and send it to the conference.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.MediaConstraints.Video">
+            <summary>
+            A boolean that indicates whether the application should
+            capture the local video and send it to the conference.
+            </summary>
+            <returns>If true, the SDK will capture the local video and send it to the conference.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.MediaConstraints.SendOnly">
+            <summary>
+            A boolean that allows a participant to join a conference as a sender. This
+            is strictly intended for Server Side SDK applications that
+            want to inject media without recording. This flag is
+            ignored by the Client SDK applications.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.Participant">
+            <summary>
+            The Participant class contains information about a conference participant.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.Participant.Info">
+            <summary>
+            Additional information about the participant.
+            </summary>
+            <returns>The ParticipantInfo class that contains additional information about the participant.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.Participant.Id">
+            <summary>
+            The unique identifier of the participant.
+            </summary>
+            <returns>The participant ID.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.Participant.Type">
+            <summary>
+            The type of the participant.
+            </summary>
+            <returns>The participant type.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.Participant.Status">
+            <summary>
+            The current status of the participant.
+            </summary>
+            <returns>The status of the participant.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.Participant.IsSendingAudio">
+            <summary>
+            A boolean value that indicates whether the participant is sending audio to a conference.
+            </summary>
+            <returns>If true, the participant is sending audio.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.Participant.IsAudibleLocally">
+            <summary>
+            A boolean value that indicates whether a remote participant is audible locally. This property is always
+            false for the local participant.
+            </summary>
+            <returns>If true, the participant is audible.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.ParticipantInfo">
+            <summary>
+            The ParticipantInfo class gathers information about a conference participant.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantInfo.ExternalId">
+            <summary>
+            The external unique identifier that an application can add
+            to the participant while opening a session. If a participant uses the
+            same external ID in a few conferences, the participant ID also remains the same
+            across all sessions.
+            </summary>
+            <returns>The external ID of the participant.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantInfo.Name">
+            <summary>
+            The participant name.
+            </summary>
+            <returns>The participant name.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.ParticipantInfo.AvatarURL">
+            <summary>
+            The URL of the participant's avatar.
+            </summary>
+            <returns>The URL of the avatar.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.UserInfo">
+            <summary>
+            The UserInfo class contains information about the participant who opened
+            a session.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.UserInfo.Id">
+            <summary>
+            The unique identifier of the participant who opened the session.
+            </summary>
+            <returns>The participant ID.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.UserInfo.Name">
+            <summary>
+            The name of the participant.
+            </summary>
+            <returns>The participant name.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.UserInfo.ExternalId">
+            <summary>
+            The external unique identifier that an application can add
+            to the participant while opening a session. If a participant uses the
+            same external ID in a few conferences, the participant ID also remains the same
+            across all sessions.
+            </summary>
+            <returns>The external ID of the participant.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.UserInfo.AvatarURL">
+            <summary>
+            The URL of the participant's avatar.
+            </summary>
+            <returns>The URL of the avatar.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoDevice">
+            <summary>
+            The VideoDevice class contains a platform-agnostic description of a video device.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoDevice.Uid">
+            <summary>
+            The unique identifier of the audio device.
+            </summary>
+            <returns>The unique identifier of the device.</returns>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoDevice.Name">
+            <summary>
+            The name of the video device.
+            </summary>
+            <returns>The name of the device.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoSink">
+            <summary>
+            The VideoSink class is an interface for receiving raw video frames.
+            </summary>
+        </member>
+        <member name="M:DolbyIO.Comms.VideoSink.#ctor">
+            <summary>
+            Create a new VideoSink.
+            </summary>
+        </member>
+        <member name="M:DolbyIO.Comms.VideoSink.OnFrame(DolbyIO.Comms.VideoFrame)">
+            <summary>
+            The callback that is invoked when a video frame is decoded and ready
+            to be processed.
+            </summary>
+            <param name="frame">The video frame.</param>
+        </member>
+        <member name="M:DolbyIO.Comms.VideoSink.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:DolbyIO.Comms.VideoSink.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoFrameHandler">
+             <summary>
+             The video frame handler for local video streams.
+            
+             The application can set the video frame handler when starting a local camera stream. Use the frame handler to
+             capture camera frames for local camera preview.
+             </summary>
+        </member>
+        <member name="P:DolbyIO.Comms.VideoFrameHandler.Sink">
+            <summary>
+            The VideoSink used to handle video frames.
+            </summary>
+        </member>
+        <member name="M:DolbyIO.Comms.VideoFrameHandler.#ctor">
+            <summary>
+            Create a new VideoFrameHandler.
+            </summary>
+        </member>
+        <member name="M:DolbyIO.Comms.VideoFrameHandler.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:DolbyIO.Comms.VideoFrameHandler.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoTrack">
+            <summary>
+            The video track description structure.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoTrack.ParticipantId">
+            <summary>
+            The id the participant to whom belongs the track.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoTrack.StreamId">
+            <summary>
+            The ID of the stream to which belongs the track.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoTrack.TrackId">
+            <summary>
+            The ID of the video track.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoTrack.SdpTrackId">
+            <summary>
+            The ID of the track in the SDP.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoTrack.IsScreenshare">
+            <summary>
+            A boolean indicating whether the track is a screenshare.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.VideoTrack.IsRemote">
+            <summary>
+            A boolean indicating whether the track is from a remote participant.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.RefreshTokenCallBack">
+            <summary>
+            The refresh token callback that is required by <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)">Session.Init</see>.
+            </summary>
+            <returns>Returns a string containing the refreshed access token.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.SignalingChannelErrorEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.DolbyIOSDK.SignalingChannelError">DolbyIOSDK.SignalingChannelError</see> event handler.
+            </summary>
+            <param name="message">The reason for the error.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.InvalidTokenErrorEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.DolbyIOSDK.InvalidTokenError">DolbyIOSDK.InvalidTokenError</see> handler.
+            </summary>
+            <param name="reason">The reason for the error.</param>
+            <param name="description">An additional description of the error.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.ConferenceStatusUpdatedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.StatusUpdated">Conference.StatusUpdated</see> event handler.
+            </summary>
+            <param name="status">The status of the conference.</param>
+            <param name="conferenceId">The corresponding conference ID.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.ParticipantAddedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.ParticipantAdded">Conference.ParticipantAdded</see> event handler. 
+            </summary>
+            <param name="participant">The added participant.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.ParticipantUpdatedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.ParticipantUpdated">Conference.ParticipantUpdated</see> event handler.
+            </summary>
+            <param name="participant">The participant who changed status.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.ActiveSpeakerChangeEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.ActiveSpeakerChange">Conference.ActiveSpeakerChange</see> event handler. 
+            </summary>
+            <param name="conferenceId">The corresponding conference ID.</param>
+            <param name="count">The number of active speakers.</param>
+            <param name="activeSpeakers">The array of IDs of the active speakers.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.ConferenceMessageReceivedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.MessageReceived">Conference.MessageReceived</see> event handler.
+            </summary>
+            <param name="conferenceId">The conference ID.</param>
+            <param name="userId">The ID of the participant who sent the message.</param>
+            <param name="info">Additional information about the participant who sent the message.</param>
+            <param name="message">The received message.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.ConferenceInvitationReceivedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.InvitationReceived">Conference.InvitationReceived</see> event handler.
+            </summary>
+            <param name="conferenceId">The conference ID.</param>
+            <param name="conferenceAlias">The conference alias.</param>
+            <param name="info">Additional information about the participant who sent the invitation.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.DvcErrorEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.DvcError">Conference.DvcError</see> event handler.
+            </summary>
+            <param name="reason">The reason for the error.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.PeerConnectionErrorEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.PeerConnectionError">Conference.PeerConnectionError</see> event handler.
+            </summary>
+            <param name="reason">The reason for the error.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoTrackAddedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.VideoTrackAdded">Conference.VideoTrackAdded</see> event handler.
+            </summary>
+            <param name="track">The added video track</param>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoTrackRemovedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.VideoTrackRemoved">Conference.VideoTrackRemoved</see> event handler.
+            </summary>
+            <param name="track">The removed video track</param>
+        </member>
+        <member name="T:DolbyIO.Comms.AudioDeviceAddedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceAdded">MediaDevice.AudioAdded</see> event handler.
+            </summary>
+            <param name="device">The added audio device.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.AudioDeviceRemovedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceRemoved">MediaDevice.AudioRemoved</see> event handler.
+            </summary>
+            <param name="id">A unique device identifier of the removed audio device.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.AudioDeviceChangedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceChanged">MediaDevice.AudioChanged</see> event handler.
+            </summary>
+            <param name="id">The changed audio device identity.</param>
+            <param name="noDevice">A boolean indicating whether there is a device in use for the current direction. True if there is no device; otherwise, false.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoDeviceAddedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceAdded">MediaDevice.VideoAdded</see> event handler.
+            </summary>
+            <param name="device">The added video device.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoDeviceChangedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceChanged">MediaDevice.VideoChanged</see> event handler.
+            </summary>
+            <param name="device">The new video device.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.VideoDeviceRemovedEventHandler">
+            <summary>
+            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceRemoved">MediaDevice.VideoRemoved</see> event handler.
+            </summary>
+            <param name="uid">A unique device identifier of the removed video device.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.Native">
+            Native Interop for the Dolby.io Communications C++ SDK
+            @nodocument
+        </member>
+        <member name="T:DolbyIO.Comms.Services.SessionService">
+             <summary>
+             The session service is responsible for connecting the SDK with the Dolby.io
+             backend by opening and closing sessions.
+            
+             To use the session service, follow these steps:
+             1. Open a session using the <see cref="M:DolbyIO.Comms.Services.SessionService.OpenAsync(DolbyIO.Comms.UserInfo)"/> method.
+             2. Join a conference using the <see cref="T:DolbyIO.Comms.Services.ConferenceService"/>.
+             3. Leave the conference and close the session using the <see cref="M:DolbyIO.Comms.Services.SessionService.CloseAsync"/> method.
+             </summary>
+             <example>
+             <code>
+             try
+             {
+                 UserInfo user = new UserInfo();
+                 user.Name = "Some Name";
+                 
+                 user = await _sdk.Session.OpenAsync(user);
+             }
+             catch (DolbyIOException e)
+             {
+                 // Error handling
+             }
+             </code>
+             </example>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.SessionService.User">
+            <summary>
+            Gets the local participant object that belongs to the current session.
+            </summary>
+            <returns>The UserInfo class that contains information about the participant who opened the session.</returns>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.SessionService.IsOpen">
+            <summary>
+            Gets if a session is currently open.
+            </summary>
+            <value><c>true</c> if a session is open; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.SessionService.OpenAsync(DolbyIO.Comms.UserInfo)">
+            <summary>
+            Opens a new session for the specified participant.
+            </summary>
+            <param name="user">Information about the participant who opens the session.</param>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents the asynchronous open operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the <see cref="T:DolbyIO.Comms.UserInfo"/> object
+            representing the participant who opened the session.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.SessionService.CloseAsync">
+            <summary>
+            Closes the current session.
+            </summary>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.Services.ConferenceService">
+             <summary>
+             The conference service allows joining and leaving conferences as well as
+             subscribing to conference events.
+            
+             To use the conference service, follow these steps:
+             1. Open a session using <see cref="M:DolbyIO.Comms.Services.SessionService.OpenAsync(DolbyIO.Comms.UserInfo)"/> from the <see cref="T:DolbyIO.Comms.Services.SessionService"/>..
+             2. Subscribe to events exposed through the service, for example <see cref="P:DolbyIO.Comms.Services.ConferenceService.StatusUpdated"/> and <see cref="P:DolbyIO.Comms.Services.ConferenceService.ParticipantUpdated"/>.
+             3. Create a conference using the <see cref="M:DolbyIO.Comms.Services.ConferenceService.CreateAsync(DolbyIO.Comms.ConferenceOptions)"/> method.
+             4. Join the created conference using the <see cref="M:DolbyIO.Comms.Services.ConferenceService.JoinAsync(DolbyIO.Comms.Conference,DolbyIO.Comms.JoinOptions)"/> method or use the <see cref="M:DolbyIO.Comms.Services.ConferenceService.ListenAsync(DolbyIO.Comms.Conference,DolbyIO.Comms.ListenOptions)"/> method to join the conference as a listener.
+             5. Leave the conference using the <see cref="M:DolbyIO.Comms.Services.ConferenceService.LeaveAsync"/> method.
+             </summary>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.StatusUpdated">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.ConferenceStatusUpdatedEventHandler"/> that is raised when a conference status has changed.
+            See <see cref="T:DolbyIO.Comms.ConferenceStatus">ConferenceStatus</see>
+            <example>
+            <code>
+            _sdk.Conference.StatusUpdated = delegate (ConferenceStatus status, string conferenceId) 
+            {
+            
+            }
+            </code>
+            </example>
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.ConferenceStatusUpdatedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.ParticipantAdded">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.ParticipantAddedEventHandler"/> that is raised when a new participant has been added to a conference.
+            <example>
+            <code>
+            _sdk.Conference.ParticipantAdded = (Participant participant) => 
+            {
+            
+            }
+            </code>
+            </example>
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.ParticipantAddedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.ParticipantUpdated">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.ParticipantUpdatedEventHandler"/> that is raised when a conference participant has changed a status.
+            <example>
+            <code>
+            _sdk.Conference.ParticipantUpdated = (Participant participant) =>
+            {
+            
+            }
+            </code>
+            </example>
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.ParticipantUpdatedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.ActiveSpeakerChange">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.ActiveSpeakerChangeEventHandler"/> that is raised when an active speaker has changed.
+            <example>
+            <code>
+            _sdk.Conference.ActiveSpeakerChange = (string conferenceId, int count, string[] activeSpeakers) => 
+            {
+            
+            }
+            </code>
+            </example>
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.ActiveSpeakerChangeEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.MessageReceived">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.ConferenceMessageReceivedEventHandler"/> that is raised when a participant receives a message.
+            </summary>
+            <example>
+            <code>
+            _sdk.Conference.MessageReceived = (string conferenceId, string userId, ParticipantInfo info, string message) =>
+            {
+            
+            }
+            </code>
+            </example>
+            <value>The <see cref="T:DolbyIO.Comms.ConferenceMessageReceivedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.InvitationReceived">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.ConferenceInvitationReceivedEventHandler"/> that is raised when a participant receives a conference invitation.
+            </summary>
+            <example>
+            <code>
+            _sdk.Conference.InvitationReceived = (string conferenceId, string conferenceAlias, ParticipantInfo info) =>
+            {
+            
+            }
+            </code>
+            </example>
+            <value>The <see cref="T:DolbyIO.Comms.ConferenceInvitationReceivedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.DvcError">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.DvcErrorEventHandler"/> that is raised when an error related to the Dolby Voice Codec (DVC) occurs.
+            </summary>
+            <example>
+            <code>
+            _sdk.Conference.DvcError = (string reason) =>
+            {
+            
+            }
+            </code>
+            </example>
+            <value>The <see cref="T:DolbyIO.Comms.DvcErrorEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.PeerConnectionError">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.PeerConnectionErrorEventHandler"/> that is raised when a peer connection problem occurs.
+            </summary>
+            <example>
+            <code>
+            _sdk.Conference.PeerConnectionError = (string reason, string description) =>
+            {
+            
+            }
+            </code>
+            </example>
+            <value>The <see cref="T:DolbyIO.Comms.PeerConnectionErrorEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.VideoTrackAdded">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.VideoTrackAddedEventHandler"/> that is raised when a <see cref="T:DolbyIO.Comms.VideoTrack"/> is added.
+            </summary>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.VideoTrackRemoved">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.VideoTrackRemovedEventHandler"/> that is raised when a <see cref="T:DolbyIO.Comms.VideoTrack"/> is removed.
+            </summary>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.ConferenceService.IsInConference">
+            <summary>
+            Gets whether the SDK is connected to a conference.
+            </summary>
+            <value><c>true</c> if the SDK is connected to a conference; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.GetCurrentAsync">
+            <summary>
+            Gets information about the current conference.
+            </summary>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the currently active <see cref="T:DolbyIO.Comms.Conference" />.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.GetParticipantsAsync">
+            <summary>
+            Gets the list of participants that are present in the current conference.
+            </summary>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns a <xref href="System.Collections.Generic.List`1" /> of <see cref="T:DolbyIO.Comms.Participant" /> objects.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.CreateAsync(DolbyIO.Comms.ConferenceOptions)">
+            <summary>
+            Creates a conference and returns information about the conference upon completion.
+            </summary>
+            <param name="options">The conference options.</param>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the newly created <see cref="T:DolbyIO.Comms.Conference" />.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.JoinAsync(DolbyIO.Comms.Conference,DolbyIO.Comms.JoinOptions)">
+            <summary>
+            Joins an existing conference as a user.
+            </summary>
+            <param name="conference">The conference object that represents the conference to join.</param>
+            <param name="options">The join options for the current participant.</param>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the joined <see cref="T:DolbyIO.Comms.Conference" /> object.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.ListenAsync(DolbyIO.Comms.Conference,DolbyIO.Comms.ListenOptions)">
+            <summary>
+            Joins an existing conference as a listener.
+            </summary>
+            <param name="conference">The conference object that represents the conference to listen to.</param>
+            <param name="options">The join options for the current participant.</param>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the joined <see cref="T:DolbyIO.Comms.Conference" /> object.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.DemoAsync(DolbyIO.Comms.SpatialAudioStyle)">
+            <summary>
+            Creates a demo conference and joins it upon completion.
+            </summary>
+            <param name="audioStyle">The <see cref="T:DolbyIO.Comms.SpatialAudioStyle">spatial audio style</see> to be used in the demo conference.</param>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the joined <see cref="T:DolbyIO.Comms.Conference" /> object.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.SetSpatialEnvironmentAsync(System.Numerics.Vector3,System.Numerics.Vector3,System.Numerics.Vector3,System.Numerics.Vector3)">
+             <summary>
+             Configures a spatial environment of an application, so the audio
+             renderer understands which directions the application considers forward,
+             up, and right and which units it uses for distance.
+             This method is available only for participants who joined a conference using the join method with enabled spatial audio. To set a spatial environment for listeners, use the <see href="https://docs.dolby.io/communications-apis/reference/set-spatial-listeners-audio">Set Spatial Listeners Audio</see> REST API.
+             If not called, the SDK uses the default spatial environment, which consists of the following values:
+             - forward = (0, 0, 1), where +Z axis is in front
+             - up = (0, 1, 0), where +Y axis is above
+             - right = (1, 0, 0), where +X axis is to the right
+             - scale = (1, 1, 1), where one unit on any axis is 1 meter
+            
+             For more information about spatial audio, see the <see href="https://docs.dolby.io/communications-apis/docs/guides-spatial-audio">Spatial Audio</see> guide.
+             </summary>
+             <param name="scale">A scale that defines how to convert units from the coordinate system of an application (pixels or centimeters) into meters used by the spatial audio coordinate system. For example, if SpatialScale is set to (100,100,100), it indicates that 100 of the applications units (cm) map to 1 meter for the audio coordinates. In such a case, if the listener's location is (0,0,0)cm and a remote participant's location is (200,200,200)cm, the listener has an impression of hearing the remote participant from the (2,2,2)m location. </param>
+             <param name="forward">A vector describing the direction the application
+             considers as forward. The value can be either +1, 0, or -1 and must be
+             orthogonal to up and right.</param>
+             <param name="up">A vector describing the direction the application considers as
+             up. The value can be either +1, 0, or -1 and must be orthogonal to
+             forward and right.</param>
+             <param name="right">A vector describing the direction the application considers
+             as right. The value can be either +1, 0, or -1 and must be orthogonal to
+             forward and up.</param>
+             <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.SetSpatialDirectionAsync(System.Numerics.Vector3)">
+             <summary>
+             Sets the direction the local participant is facing in space. This method is available only for participants who joined the conference using the join method with enabled spatial audio. To set a spatial direction for listeners, use the <see href="https://docs.dolby.io/communications-apis/reference/set-spatial-listeners-audio">Set Spatial Listeners Audio</see> REST API.
+            
+             If the local participant hears audio from the position (0,0,0) facing down the Z-axis and locates a remote participant in the position (1,0,1), the local participant hears the remote participant from their front-right. If the local participant chooses to change the direction they are facing and rotate +90 degrees about the Y-axis, then instead of hearing the speaker from the front-right position, they hear the speaker from the front-left position.
+            
+             For more information about spatial audio, see the <see href="https://docs.dolby.io/communications-apis/docs/guides-spatial-audio">Spatial Audio</see> guide.
+             </summary>
+             <param name="direction">The direction the local participant is facing in space.</param>
+             <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.SetSpatialPositionAsync(System.String,System.Numerics.Vector3)">
+             <summary>
+             Sets a participant's position in space to enable the spatial audio experience during a Dolby Voice conference. This method is available only for participants who joined the conference using the join method with enabled spatial audio. To set a spatial position for listeners, use the <see href="https://docs.dolby.io/communications-apis/reference/set-spatial-listeners-audio">Set Spatial Listeners Audio</see> REST API.
+            
+             Depending on the specified participant in the participant parameter, the setSpatialPosition method impacts the location from which audio is heard or from which audio is rendered:
+             - When the specified participant is the local participant, setSpatialPosition sets a location from which the local participant listens to a conference. If the local participant does not have an established location, the participant hears audio from the default location (0, 0, 0).
+             - When the specified participant is a remote participant, setSpatialPosition ensures the remote participant's audio is rendered from the specified location in space. Setting the remote participants’ positions is required in conferences that use the individual spatial audio style. In these conferences, if a remote participant does not have an established location, the participant does not have a default position and will remain muted until a position is specified. The shared spatial audio style does not support setting the remote participants' positions. In conferences that use the shared style, the spatial scene is shared by all participants, so that each client can set a position and participate in the shared scene.
+            
+             For example, if a local participant Eric, who uses the individual spatial audio style and does not have a set direction, calls setSpatialPosition(VoxeetSDK.session.participant, {x:3,y:0,z:0}), Eric hears audio from the position (3,0,0). If Eric also calls setSpatialPosition(Sophia, {x:7,y:1,z:2}), he hears Sophia from the position (7,1,2). In this case, Eric hears Sophia 4 meters to the right, 1 meter above, and 2 meters in front.
+            
+             For more information about spatial audio, see the <see href="https://docs.dolby.io/communications-apis/docs/guides-spatial-audio">Spatial Audio</see> guide.
+             </summary>
+             <param name="participantId">The selected participant. Using the local participant sets the location from which the participant will hear a conference. Using a remote participant sets the position from which the participant's audio will be rendered.</param>
+             <param name="position">The participant's audio location.</param>
+             <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.SendMessageAsync(System.String)">
+            <summary>
+            Sends a message to the current conference.
+            </summary>
+            <remarks>
+            Attention: The message size is limited to 16KB.
+            </remarks>
+            <param name="message">The message to send to the conference.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.DeclineInvitationAsync(System.String)">
+            <summary>
+            Declines a conference invitation.
+            </summary>
+            <param name="conferenceId">The conference identifier.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.ConferenceService.LeaveAsync">
+            <summary>
+            Leaves a conference.
+            </summary>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.Services.MediaDeviceService">
+             <summary>
+             The media device service provides access to set the input and output audio devices
+             as well as getting notifications about the added and removed devices.
+            
+             To use the media device service, follow these steps:
+             1. Get all current audio devices using the <see cref="M:DolbyIO.Comms.Services.MediaDeviceService.GetAudioDevicesAsync"/> method.
+             2. Set the desired input audio device by calling the <see cref="M:DolbyIO.Comms.Services.MediaDeviceService.SetPreferredAudioInputDeviceAsync(DolbyIO.Comms.AudioDevice)"/> method.
+             3. Set the desired output audio device by calling the <see cref="M:DolbyIO.Comms.Services.MediaDeviceService.SetPreferredAudioOutputDeviceAsync(DolbyIO.Comms.AudioDevice)"/> method.
+             4. Subscribe to the <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceAdded"/>, <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceRemoved"/>, and <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceChanged"/> events.
+             </summary>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceAdded">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.AudioDeviceAddedEventHandler"/> that is raised when a new audio device is added to the system.
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.AudioDeviceAddedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceRemoved">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.AudioDeviceRemovedEventHandler"/> that is raised when an audio device is removed from the system.
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.AudioDeviceRemovedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceChanged">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.AudioDeviceChangedEventHandler"/> that is raised when the currently used input or output audio device has changed.
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.AudioDeviceChangedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceAdded">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.VideoDeviceAddedEventHandler"/> that is raised when a new video device is added to the system.
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.AudioDeviceAddedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceChanged">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.VideoDeviceChangedEventHandler"/> that is raised when the currently used input or output video device has changed.
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.VideoDeviceChangedEventHandler"/> event handler.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceRemoved">
+            <summary>
+            Sets the <see cref="T:DolbyIO.Comms.VideoDeviceRemovedEventHandler"/> that is raised when a video device is removed from the system.
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.VideoDeviceRemovedEventHandler"/> event handler.</value>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.MediaDeviceService.GetAudioDevicesAsync">
+            <summary>
+            Gets a list of all audio devices that are currently available in the system.
+            </summary>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns a list of <see cref="T:DolbyIO.Comms.AudioDevice">audio devices</see>
+            that are currently available in the system.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.MediaDeviceService.GetCurrentAudioInputDeviceAsync">
+            <summary>
+            Gets the audio input device that is currently used by the system.
+            </summary>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents the asynchronous operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the <see cref="T:DolbyIO.Comms.AudioDevice">audio device</see>
+            that is currently used by the system.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.MediaDeviceService.GetCurrentAudioOutputDeviceAsync">
+            <summary>
+            Gets the audio output device that is currently used by the system.
+            </summary>
+            <returns>The currently used output audio device.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.MediaDeviceService.SetPreferredAudioInputDeviceAsync(DolbyIO.Comms.AudioDevice)">
+            <summary>
+            Sets the preferred input audio device.
+            </summary>
+            <param name="device">The <see cref="T:DolbyIO.Comms.AudioDevice"/> object to set as preferred input device.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.MediaDeviceService.SetPreferredAudioOutputDeviceAsync(DolbyIO.Comms.AudioDevice)">
+            <summary>
+            Sets the preferred output audio device.
+            </summary>
+            <param name="device">The <see cref="T:DolbyIO.Comms.AudioDevice"/> object to set as preferred output device.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.MediaDeviceService.GetVideoDevicesAsync">
+            <summary>
+            Gets a list of all video devices that are currently available in the system.
+            </summary>
+            <returns>The <xref href="System.Threading.Tasks.Task`1"/> that represents an asynchronous operation.
+            The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns a list of <see cref="T:DolbyIO.Comms.VideoDevice">video devices</see>
+            that are currently available in the system.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.MediaDeviceService.GetCurrentVideoDeviceAsync">
+            <summary>
+            Gets the video device that is currently used by the system.
+            </summary>
+            <returns>The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the <see cref="T:DolbyIO.Comms.VideoDevice">video device</see>
+            that is currently used by the system.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.Services.AudioService">
+            <summary>
+            The audio service offers two properties for the services that allow accessing audio methods for the <see cref="P:DolbyIO.Comms.Services.AudioService.Local"/> and <see cref="P:DolbyIO.Comms.Services.AudioService.Remote"/> participants.
+            </summary>
+            <example>
+            <code>
+            try
+            {
+                await _sdk.Audio.Local.StartAsync();
+                await _sdk.Audio.Remote.StopAsync(participantId);
+            }
+            catch
+            {
+                // Error handling
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.AudioService.Local">
+            <summary>
+            Gets the local audio service.
+            </summary>
+            <value>The service that allows accessing audio methods for the local participant.</value>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.AudioService.Remote">
+            <summary>
+            Gets the remote audio service.
+            </summary>
+            <value>The service that allows accessing audio methods for remote participants.</value>
+        </member>
+        <member name="T:DolbyIO.Comms.Services.LocalAudioService">
+            <summary>
+            The local audio service allows <see cref="M:DolbyIO.Comms.Services.LocalAudioService.StartAsync">enabling</see>, <see cref="M:DolbyIO.Comms.Services.LocalAudioService.StopAsync">disabling</see>, and <see cref="M:DolbyIO.Comms.Services.LocalAudioService.MuteAsync(System.Boolean)">muting</see> the local participant's audio.
+            </summary>
+            <example>
+            <code>
+            try
+            {
+                await _sdk.Audio.Local.StartAsync();
+                await _sdk.Audio.Local.MuteAsync(true);
+                await _sdk.Audio.Local.StopAsync();
+            }
+            catch
+            {
+                // Error handling
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.LocalAudioService.StartAsync">
+            <summary>
+            Enables the local participant's audio and sends the audio to a conference.
+            </summary>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.LocalAudioService.StopAsync">
+            <summary>
+            Disables the local participant's audio and stops sending the audio to a conference.
+            </summary>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.LocalAudioService.MuteAsync(System.Boolean)">
+            <summary>
+            Stops sending the local participant's audio to the conference. The mute method does not notify the server to stop audio stream transmission.
+            </summary>
+            <param name="muted">A boolean value that indicates the required mute state. True
+            mutes the microphone, false un-mutes the microphone.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+            <remarks>
+            To stop sending audio to the conference, use the <see cref="M:DolbyIO.Comms.Services.LocalAudioService.StopAsync">stopAudio</see> method.
+            </remarks>
+        </member>
+        <member name="T:DolbyIO.Comms.Services.RemoteAudioService">
+            <summary>
+            The remote audio service allows to <see cref="M:DolbyIO.Comms.Services.RemoteAudioService.MuteAsync(System.Boolean,System.String)">mute</see> selected remote participants (Non-Dolby Voice conferences only) and <see cref="M:DolbyIO.Comms.Services.RemoteAudioService.StopAsync(System.String)"> stop</see> and <see cref="M:DolbyIO.Comms.Services.RemoteAudioService.StartAsync(System.String)">start</see> receiving audio from remote participants.
+            </summary>
+            <example>
+            <code>
+            try
+            {
+                await _sdk.Audio.Remote.StartAsync(participantId);
+                await _sdk.Audio.Remote.StopAsync(participantId);
+                await _sdk.Audio.Remote.MuteAsync(true, participantId);
+            }
+            catch
+            {
+                // Error handling
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.RemoteAudioService.StartAsync(System.String)">
+            <summary>
+            Start receiving the audio from a remote participant.
+            </summary>
+            <param name="participantId">The identifier of the remote participant whose audio should be sent to the local participant.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.RemoteAudioService.StopAsync(System.String)">
+            <summary>
+            Stop receiving the audio from a remote participant.
+            </summary>
+            <param name="participantId">The identifier of the remote participant whose audio should not be sent to the local participant.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.RemoteAudioService.MuteAsync(System.Boolean,System.String)">
+            <summary>
+            Stops playing the specified remote participants' audio to the local participant.
+            The mute method does not notify the server to stop audio stream transmission.
+            To stop receiving an audio stream from the server, use the <see cref="M:DolbyIO.Comms.Services.RemoteAudioService.StopAsync(System.String)">StopAsync</see> method.
+            </summary>
+            <param name="muted">A boolean value that indicates the required mute state. True
+            mutes the remote participant, false un-mutes the remote participant.</param>
+            <param name="participantId">The identifier of the remote participant whose audio should not be played.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+            <remarks>
+            <b>Attention:</b> This method is only available in non-Dolby Voice conferences.
+            </remarks>
+        </member>
+        <member name="T:DolbyIO.Comms.Services.VideoService">
+            <summary>
+            The VideoService allows managing the local participant's and remote participants' video.
+            </summary>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.VideoService.Local">
+            <summary>
+            Gets the local video service.
+            </summary>
+        </member>
+        <member name="P:DolbyIO.Comms.Services.VideoService.Remote">
+            <summary>
+            Gets the remote video service.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.Services.LocalVideoService">
+            <summary>
+            The LocalVideoService is responsible for capturing the local participant's video
+            and sending the video into a conference.
+            </summary>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.LocalVideoService.StartAsync(System.Nullable{DolbyIO.Comms.VideoDevice},DolbyIO.Comms.VideoFrameHandler)">
+             <summary>
+             Starts capturing the local participant's video.
+            
+             You can call this method any time, regardless of the conference state. If this method is invoked when there's
+             no active conference, the method selects a camera and sets a video frame handler. If the video frame
+             handler has a video sink, the camera starts delivering frames to the sink.
+            
+             This method also allows switching cameras. If you passed a VideoFrameHandler to the
+             previous start call and would like to continue using that handler, you must pass the same handler into the
+             subsequent call to switch cameras. This action just switches cameras and keeps the rest of
+             the pipeline in tact.
+            
+             An application is responsible for the frame handler and must not delete the handler or its
+             sink until the handler invokes the StopAsync() method and the StopAsync() method execution is finished.
+            
+             If the application uses a null VideoDevice, then the SDk uses the first video device found in the system.
+            
+             If this method returns an error, the application can safely delete the provided frame handler.
+            
+             If the application starts the video while not in a conference and joins the conference later, the conference's
+             local video state is determined by the MediaConstraints passed to the conference::join() method. In this situation, it is possible to
+             start the local camera preview, but it is not possible not to join the conference with video. In order to enable video later
+             , you have to call the start() method again. It is not possible to stop sending video into the
+             conference while keeping the local camera preview..   
+             </summary>
+             <param name="device">The device for capturing video or null.</param>
+             <param name="handler">The VideoFrameHandler for receiving the local video frames.</param>
+             <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.LocalVideoService.StopAsync">
+            <summary>
+            Stops local video capture.
+            </summary>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.Services.RemoteVideoService">
+            <summary>
+            The RemoteVideoService allows the local participant to locally start and stop remote participants` video streams transmission.
+            </summary>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.RemoteVideoService.SetVideoSinkAsync(DolbyIO.Comms.VideoTrack,DolbyIO.Comms.VideoSink)">
+            <summary>
+            Sets a video sink to allow passing decoded video frames to an application. The set sink is used in all conferences. 
+            An application is responsible for the sink and the SDK does not delete it. The application should set a null
+            sink and ensure that the SetVideoSinkAsync() call returns before deleting the previously set sink object.
+            </summary>
+            <param name="track">The VideoTrack to be attached to.</param>
+            <param name="sink">The VideoSink used to receive video frames.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="T:DolbyIO.Comms.ComponentName">
+            <summary>
+            The component name.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ComponentName.Unity">
+            <summary>
+            The unity component name.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ComponentName.Dotnet">
+            <summary>
+            The dotnet componenet name.
+            </summary>
+        </member>
+        <member name="T:DolbyIO.Comms.DolbyIOException">
+            <summary>
+            Represents errors that occur in the SDK during application execution.
+            </summary>
+        </member>
+        <member name="M:DolbyIO.Comms.DolbyIOException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DolbyIO.Comms.DolbyIOException">DolbyIOException</see>.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="T:DolbyIO.Comms.DolbyIOSDK">
+            <summary>
+            Main entry point that allows the application to interact with the Dolby.io services.
+            </summary>
+        </member>
+        <member name="P:DolbyIO.Comms.DolbyIOSDK.SignalingChannelError">
+            <summary>
+            Raised when an error occurs during a Session Initiation Protocol (SIP) negotiation
+            of the local participant's peer connection.
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.SignalingChannelErrorEventHandler"/> event handler raised when an error occurs.</value>
+            <exception cref="T:DolbyIO.Comms.DolbyIOException">Is thrown when <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)"/> has not yet been called.</exception>
+        </member>
+        <member name="P:DolbyIO.Comms.DolbyIOSDK.InvalidTokenError">
+            <summary>
+            Raised when the access token is invalid or has expired.
+            </summary>
+            <value>The <see cref="T:DolbyIO.Comms.InvalidTokenErrorEventHandler"/> event handler raised when the access token is invalid or has expired.</value>
+            <exception cref="T:DolbyIO.Comms.DolbyIOException">Is thrown when <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)"/> has not yet been called.</exception>
+        </member>
+        <member name="P:DolbyIO.Comms.DolbyIOSDK.Session">
+            <summary>
+            Gets the session service.
+            </summary>
+            <value>The service that allows manipulating sessions.</value>
+            <exception cref="T:DolbyIO.Comms.DolbyIOException">Is thrown when <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)"/> has not yet been called.</exception>
+        </member>
+        <member name="P:DolbyIO.Comms.DolbyIOSDK.Conference">
+            <summary>
+            Gets the conference service.
+            </summary>
+            <value>The service that allows manipulating conferences.</value>
+            <exception cref="T:DolbyIO.Comms.DolbyIOException">Is thrown when <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)"/> has not yet been called.</exception>
+        </member>
+        <member name="P:DolbyIO.Comms.DolbyIOSDK.MediaDevice">
+            <summary>
+            Gets the media device service.
+            </summary>
+            <value>The service that allows manipulating media devices.</value>
+            <exception cref="T:DolbyIO.Comms.DolbyIOException">Is thrown when <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)"/> has not yet been called.</exception>
+        </member>
+        <member name="P:DolbyIO.Comms.DolbyIOSDK.Audio">
+            <summary>
+            Gets the audio service.
+            </summary>
+            <value>The service that allows accessing to the remote and local audio services.</value>
+            <exception cref="T:DolbyIO.Comms.DolbyIOException">Is thrown when <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)"/> has not yet been called.</exception>
+        </member>
+        <member name="P:DolbyIO.Comms.DolbyIOSDK.Video">
+            <summary>
+            Gets the video service.
+            </summary>
+            <exception cref="T:DolbyIO.Comms.DolbyIOException">Is thrown when <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)"/> has not yet been called.</exception>
+        </member>
+        <member name="P:DolbyIO.Comms.DolbyIOSDK.IsInitialized">
+            <summary>
+            Gets if the SDK is initialized. 
+            </summary>
+            <value><c>true</c> if the SDK is initialized; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:DolbyIO.Comms.DolbyIOSDK.#ctor(System.String)">
+            <summary>
+            Create a new DolbyIOSDK
+            </summary>
+            <param name="componentName">The component used.</param>
+        </member>
+        <member name="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)">
+            <summary>
+            Initializes the SDK with an access token that is provided by the customer's backend.
+            </summary>
+            <param name="accessToken">The access token provided by the customer's backend.</param>
+            <param name="cb">The refresh token callback.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+            <exception cref="T:DolbyIO.Comms.DolbyIOException">Is thrown when <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)"/> has not yet been called.</exception>
+        </member>
+        <member name="M:DolbyIO.Comms.DolbyIOSDK.SetLogLevelAsync(DolbyIO.Comms.LogLevel)">
+            <summary>
+            Sets the logging level for the SDK.
+            </summary>
+            <param name="logLevel">The new logging level value.</param>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.DolbyIOSDK.Finalize">
+            <summary>
+            Class finalizer.
+            </summary>
+        </member>
+        <member name="M:DolbyIO.Comms.DolbyIOSDK.Dispose">
+            <summary>
+            Releases the unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:DolbyIO.Comms.DolbyIOSDK.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources.
+            </summary>
+            <param name="disposing">A boolean that indicates whether the method call comes from the Dispose method (true) or from a finalizer (false).</param>
+        </member>
+    </members>
+</doc>

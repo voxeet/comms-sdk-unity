@@ -27,6 +27,7 @@
     "directory": "dolbyio.comms.unity"
   },
   "dependencies": {
-    "com.unity.nuget.newtonsoft-json": "3.0.2"
+    "com.unity.nuget.newtonsoft-json": "3.0.2",
+    "com.unity.visualscripting": "1.8.0"
   }
 }
