@@ -1,12 +1,58 @@
 name: Package Unity Plugin
-on: workflow_dispatch
+on: 
+   push:
+    branches:
+      - notarisation
 
 jobs:
   package:
     runs-on: macos-latest
     steps:
+
+
+      #- uses: actions/checkout@v2
+      #- name: Zip of assets of DolbyIO comms-sdk-unity
+      #  run: |
+      #    zip -rq comms-sdk-unity.zip ./*
+     
       - uses: actions/checkout@v2
+      - name: Install the Apple certificate and notarization profile
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+          IAPI_UNITY_APP_SPECYFIC_PASSWORD: ${{ secrets.IAPI_UNITY_APP_SPECYFIC_PASSWORD }}
+          NOTARIZATION_LOG: "${RUNNER_TEMP}/notarization.log"
+
+        run: |
+          # create variables
+          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          # import certificate and provisioning profile from secrets
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
+          # create temporary keychain
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          # import certificate to keychain
+          security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security list-keychain -d user -s $KEYCHAIN_PATH
+          xcrun notarytool store-credentials "unity-notarization-profile" --apple-id "iapi@dolby.com" --team-id B55NRA8BRW --password "${IAPI_UNITY_APP_SPECYFIC_PASSWORD}"
+          codesign --force --strict --timestamp --sign 'Developer ID Application: VOXEET INC. (B55NRA8BRW)' Plugins/osx-universal/native/*.dylib
+          rm -rf Plugins/win-x64
+          rm -rf Plugins/osx-universal/native/*.meta
+          codesign -dvv Plugins/osx-universal/native/*
+          hdiutil create -volname comms-sdk-unity -srcfolder ${{github.workspace}} -ov -format UDBZ comms-sdk-unity.dmg
+
+          du -sh comms-sdk-unity.dmg
+          xcrun notarytool submit ${{github.workspace}}/comms-sdk-unity.dmg --keychain-profile "unity-notarization-profile" --wait > notarization.log
+          cat notarization.log
+          export NOTARIZATION_ID=$(awk '$1=="id:"{print $2}' notarization.log | head -n 1)
+          xcrun notarytool log ${NOTARIZATION_ID} --keychain-profile "unity-notarization-profile"  notrary_log.json
+          cat notrary_log.json
+
+
       - uses: actions/upload-artifact@v3
         with:
-          name: dolbyio-comms-unity-plugin
-          path: ${{github.workspace}}/
+          name: comms-sdk-unity.dmg
+          path: ${{github.workspace}}/comms-sdk-unity.dmg
