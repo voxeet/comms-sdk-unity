@@ -31,18 +31,11 @@ namespace DolbyIO.Comms.Unity.Editor
             var text = new StringBuilder("Packages:\n");
             foreach (var package in packages)
             {
-                if (package.name == "dolbyio.comms.unity")
+                if (package.name == "dolbyio.comms.unity" && package.source == PackageSource.Registry)
                 {
                     WelcomeWindow.Initialize();
                 }
             }
-
-        }
-
-        [MenuItem("Window/Dolby.io Comms Welcome")]
-        public static void Initialize()
-        {
-            GetWindow<WelcomeWindow>("Welcome!");
         }
 
         void OnEnable()
