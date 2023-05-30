@@ -10,13 +10,13 @@ namespace DolbyIO.Comms.Unity
         public int Width { get; set; }
         public int Height { get; set; }
 
-        private GameObject _display;
+        private Material  _material;
         private Texture2D _texture;
 
-        public VideoRenderer(GameObject display)
+        public VideoRenderer(Material material)
         {
             Width = Height = 0;
-            _display = display;
+            _material = material;
         }
 
         private void createTexture()
@@ -29,12 +29,13 @@ namespace DolbyIO.Comms.Unity
             {
                 _texture.Reinitialize(Width, Height, TextureFormat.ARGB32, false);
             }
-            _display.GetComponent<Renderer>().material.mainTexture = _texture;
+
+            _material.mainTexture = _texture;
         }
 
         public void Clear()
         {
-            _display.GetComponent<Renderer>().material.mainTexture = Texture2D.blackTexture;
+            _material.mainTexture = Texture2D.blackTexture;
             Width = 0;
             Height = 0;
         }

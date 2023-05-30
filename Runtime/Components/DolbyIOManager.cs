@@ -7,18 +7,24 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net;
 using UnityEngine;
+using UnityEngine.Events;
 using Unity.VisualScripting;
 using DolbyIO.Comms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 namespace DolbyIO.Comms.Unity
 {
-    [AddComponentMenu("Dolby.io Comms/Dolby.io Manager")]
+    [AddComponentMenu("Dolby.io Comms/Dolby.io Manager", 1)]
     [Inspectable]
     public class DolbyIOManager : MonoBehaviour
     {
+
+        [Inspectable]
+        [SerializeReference]
         private static DolbyIOSDK _sdk = new DolbyIOSDK(ComponentName.Unity);
+
         private static List<Action> _backlog = new List<Action>();
 
         private static HttpClient _client = new HttpClient();
@@ -28,13 +34,21 @@ namespace DolbyIO.Comms.Unity
 
         [Inspectable]
         public static DolbyIOSDK Sdk { get => _sdk; }
-        
-        [Tooltip("Indicates if the DolbyIOManager should automatically leave the current conference on application quit.")]
-        public bool AutoLeaveConference = true;
-        
+
+        public static DolbyIOManager Instance {get; private set; }
+
+        [Tooltip("The name of the local player")]
+        public string PlayerName = "Player";
+
+        [Tooltip("Indicates if the DolbyIOManager should automatically open the session on awaking.")]
+        public bool AutoOpenSession = true;
+
         [Tooltip("Indicates if the DolbyIOManager should automatically close the session on application quit.")]
         public bool AutoCloseSession = true;
 
+        [Tooltip("Indicates if the DolbyIOManager should automatically leave the current conference on application quit.")]
+        public bool AutoLeaveConference = true;
+        
         [Tooltip("The elapsed time between two call to set position in s.")]
         public float PositionDuration = 0.3f;
 
@@ -42,6 +56,7 @@ namespace DolbyIO.Comms.Unity
         public float DirectionDuration = 0.05f;
 
         public AudioListener AudioListener;
+
 
         /// <summary>
         /// For convenience during early development and prototyping, a method is provided for you to 
@@ -94,6 +109,32 @@ namespace DolbyIO.Comms.Unity
             }
         }
 
+        private void OnEnable()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+        }
+
+        void Awake()
+        {
+            var component = GetComponent<Credentials>();
+            if (!component)
+            {
+                Debug.LogError($"Unable to find component {nameof(Credentials)}, please add one.");
+            }
+            else
+            {
+                _sdk.InitAsync(component.GetToken(), component.GetToken).Wait();
+
+                if (AutoOpenSession)
+                {
+                    OpenSession();
+                }
+            }
+        }
+
         void Start()
         {
             if (!AudioListener)
@@ -108,7 +149,14 @@ namespace DolbyIO.Comms.Unity
             {
                 foreach(var action in _backlog)
                 {
-                    action();
+                    try
+                    {
+                        action();
+                    }
+                    catch(Exception e)
+                    {
+                        Debug.Log(e);
+                    }                    
                 }
                 _backlog.Clear();
             }
@@ -117,6 +165,25 @@ namespace DolbyIO.Comms.Unity
             {
                 UpdatePosition();
                 UpdateDirection();
+            }
+        }
+
+        public void OpenSession()
+        {
+            UserInfo user = new UserInfo();
+            user.Name = PlayerName;
+
+            if (!_sdk.Session.IsOpen)
+            {
+                _sdk.Session.OpenAsync(user).Wait();
+            }
+        }
+
+        public void CloseSession()
+        {
+            if (!_sdk.Session.IsOpen)
+            {
+                _sdk.Session.CloseAsync().Wait();
             }
         }
 
@@ -167,7 +234,7 @@ namespace DolbyIO.Comms.Unity
             }
         }
 
-        async Task OnApplicationQuit()
+        async void OnApplicationQuit()
         {
             try
             {

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6605379165524917189}
+  - component: {fileID: 5734509356865404329}
   m_Layer: 0
   m_Name: VideoView
   m_TagString: Untagged
@@ -32,6 +33,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5734509356865404329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040987451545033912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df0806b973b841ef967c69d55fb4bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Conference: {fileID: 0}
+  ParticipantId: 
+  Show: 0
 --- !u!1 &5670317359301030907
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +60,6 @@ GameObject:
   - component: {fileID: 3967501597835102495}
   - component: {fileID: 632505268799572652}
   - component: {fileID: 1527466000814918900}
-  - component: {fileID: 3197385844554037987}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -131,15 +146,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &3197385844554037987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5670317359301030907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9446df8a05f94dee827653f87221454, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
