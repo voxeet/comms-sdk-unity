@@ -16,6 +16,7 @@ public class VideoDeviceDropdown : MonoBehaviour
 	private TMP_Dropdown _dropdown;
 
     private List<VideoDevice> _currentDevices;
+
     public VideoDevice CurrentDevice;
 
 	void Awake()

@@ -127,7 +127,10 @@ namespace DolbyIO.Comms.Unity
             if (VideoDevice)
             {
                 var dropdown = VideoDevice.GetComponent<VideoDeviceDropdown>();
-                device = dropdown.CurrentDevice;
+                if (dropdown)
+                {
+                    device = dropdown.CurrentDevice;
+                }
             }
 
             DolbyIOManager.QueueOnMainThread(() =>
