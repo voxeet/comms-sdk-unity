@@ -19,6 +19,9 @@ namespace DolbyIO.Comms.Unity
 
         private List<VideoController> _videoControllers = new List<VideoController>();
 
+        private VideoFrameHandler _cameraVideoFrameHandler = null;
+        private VideoFrameHandler _screenShareVideoFrameHandler = null;
+
         [Tooltip("The conference alias to join.")]
         [SerializeField]
         private string _conferenceAlias;
@@ -39,6 +42,7 @@ namespace DolbyIO.Comms.Unity
         public bool AutoJoin = false;
 
         public GameObject VideoDevice;
+        public GameObject ScreenShareSource;
 
         void Start()
         {
@@ -133,10 +137,17 @@ namespace DolbyIO.Comms.Unity
                 }
             }
 
+            var controller = _videoControllers.Find(c => c.IsLocal == true);
+            if (controller)
+            {
+                _cameraVideoFrameHandler = new VideoFrameHandler();
+                _cameraVideoFrameHandler.Sink = controller.VideoRenderer;
+            }
+
             DolbyIOManager.QueueOnMainThread(() =>
             {
 
-                _sdk.Video.Local.StartAsync(device).ContinueWith
+                _sdk.Video.Local.StartAsync(device, _cameraVideoFrameHandler).ContinueWith
                 (
                     t => Debug.LogError(t.Exception),
                     TaskContinuationOptions.OnlyOnFaulted
@@ -153,7 +164,53 @@ namespace DolbyIO.Comms.Unity
             }
             catch (DolbyIOException e)
             {
-                Debug.LogError(e.Message);
+                Debug.LogError("Failed to stop video." + e);
+            }
+        }
+
+        public void StartScreenShare()
+        {
+            try
+            {
+                if (ScreenShareSource)
+                {
+                    var dropdown = ScreenShareSource.GetComponent<ScreenShareSourceDropdown>();
+                    if (dropdown.CurrentSource.Id != 0)
+                    {
+                        var controller = _videoControllers.Find(c => c.IsLocal && c.IsScreenShare);
+                        if (controller)
+                        {
+                            _screenShareVideoFrameHandler = new VideoFrameHandler();
+                            _screenShareVideoFrameHandler.Sink = controller.VideoRenderer;
+                        }
+
+                        _sdk.Video.Local.StartScreenShareAsync(dropdown.CurrentSource, _screenShareVideoFrameHandler)
+                            .ContinueWith
+                            (
+                                t => Debug.LogError(t.Exception),
+                                TaskContinuationOptions.OnlyOnFaulted
+                            );
+                    }
+                    else
+                    {
+                        throw new Exception("No source selected");
+                    }
+                }
+            }
+            catch (DolbyIOException e)
+            {
+                Debug.LogError("Failed to start screen share" + e);
+            }
+        }
+
+        public void StopScreenShare()
+        {
+            try
+            {
+            }
+            catch (DolbyIOException e)
+            {
+                Debug.LogError("Failed to stop screen share" + e);
             }
         }
 
@@ -208,6 +265,11 @@ namespace DolbyIO.Comms.Unity
             foreach(var c in _videoControllers)
             {
                 string participantId = "";
+
+                if (c.IsLocal)
+                {
+                    return;
+                }
 
                 switch (c.FilterBy)
                 {

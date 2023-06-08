@@ -27,6 +27,12 @@ namespace DolbyIO.Comms.Unity
 
         [Tooltip("The filter value.")]
         public string Filter;
+
+        [Tooltip("Whether to display local or remote video.")]
+        public bool IsLocal = false;
+
+        [Tooltip("Wether to display screenshare.")]
+        public bool IsScreenShare = false;
         
         private VideoTrack _videoTrack;
 
