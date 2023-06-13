@@ -262,8 +262,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b710bb95e9f435fa2954abc3cff550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoLeaveConference: 1
+  PlayerName: Player
+  AutoOpenSession: 0
   AutoCloseSession: 1
+  AutoLeaveConference: 1
   PositionDuration: 0.3
   DirectionDuration: 0.05
   AudioListener: {fileID: 0}

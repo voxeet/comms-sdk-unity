@@ -12,9 +12,14 @@
       "spatial"
   ],
   "samples": [{
-    "displayName": "Reference Sample Scenes",
+    "displayName": "Shared Scene Sample",
     "description": "Dolby.io Communications samples",
-    "path": "Samples~"
+    "path": "Samples~/SharedScene"
+  },
+  {
+    "displayName": "2D HUD Sample Scene",
+    "description": "Dolby.io Communications samples",
+    "path": "Samples~/2D HUD"
   }],
   "author": {
     "name": "DolbyIO",
