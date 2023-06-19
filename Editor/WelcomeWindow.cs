@@ -38,6 +38,11 @@ namespace DolbyIO.Comms.Unity.Editor
             }
         }
 
+        public static void Initialize()
+        {
+            GetWindow<WelcomeWindow>("Welcome!");
+        }
+
         void OnEnable()
         {
             _logoTex = (Texture2D) AssetDatabase.LoadAssetAtPath("Packages/dolbyio.comms.unity/Editor/Resources/dolby.io-logo.png", typeof(Texture2D));
