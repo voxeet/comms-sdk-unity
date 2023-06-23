@@ -133,30 +133,6 @@ namespace DolbyIO.Comms.Unity.Editor
             }
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
-
-            //GUILayout.Space(20);
-
-            //GUILayout.BeginHorizontal();
-            //GUILayout.FlexibleSpace();
-            //GUILayout.Label("You can find your App Key in the Dolby.io dashboard at");
-            //if (GUILayout.Button("https://dashboard.dolby.io", EditorStyles.linkLabel))
-            //{
-            //    Application.OpenURL("https://dashboard.dolby.io");
-            //}
-            //GUILayout.FlexibleSpace();
-            //GUILayout.EndHorizontal();
-
-            //GUILayout.Space(10);
-
-            //GUILayout.BeginHorizontal();
-            //GUILayout.FlexibleSpace();
-            //GUILayout.Label("For help, see");
-            //if (GUILayout.Button("here", EditorStyles.linkLabel))
-            //{
-            //    Application.OpenURL("https://docs.dolby.io/communications-apis/docs/guides-api-authentication#locating-your-app-key-and-app-secret");
-            //}
-            //GUILayout.FlexibleSpace();
-            //GUILayout.EndHorizontal();
         }
 
         #region Utilities
