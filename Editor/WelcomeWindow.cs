@@ -68,28 +68,6 @@ namespace DolbyIO.Comms.Unity.Editor
 
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button("Getting Started", GUILayout.Height(30)))
-            {
-                Application.OpenURL("https://api-references.dolby.io/comms-sdk-dotnet/documentation/unity/getting-started/example.html");
-            }
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-
-            GUILayout.Space(5);
-
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            if (GUILayout.Button("Visual Scripting", GUILayout.Height(30)))
-            {
-                Application.OpenURL("https://api-references.dolby.io/comms-sdk-dotnet/documentation/unity/visualscripting/nodes.html");
-            }
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-
-            GUILayout.Space(40);
-
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
             GUILayout.Label("Insert your App Key to get started:");
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
@@ -102,10 +80,17 @@ namespace DolbyIO.Comms.Unity.Editor
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
 
-            GUILayout.Space(10);
+            GUILayout.Space(15);
 
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
+            if (GUILayout.Button("How to get an App Key", GUILayout.Height(30)))
+            {
+                Application.OpenURL("https://docs.dolby.io/communications-apis/docs/guides-app-credentials");
+            }
+
+            GUILayout.Space(60);
+
             if (GUILayout.Button("Begin", GUILayout.Width(50), GUILayout.Height(30)))
             {
                 var result = VSAttribution.SendAttributionEvent(_actionName, CustomerKey);
@@ -127,29 +112,51 @@ namespace DolbyIO.Comms.Unity.Editor
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
 
-            GUILayout.Space(20);
+            GUILayout.Space(40);
 
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            GUILayout.Label("You can find your App Key in the Dolby.io dashboard at");
-            if (GUILayout.Button("https://dashboard.dolby.io", EditorStyles.linkLabel))
+            if (GUILayout.Button("Getting Started", GUILayout.Height(30)))
             {
-                Application.OpenURL("https://dashboard.dolby.io");
+                Application.OpenURL("https://api-references.dolby.io/comms-sdk-dotnet/documentation/unity/getting-started/example.html");
             }
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
 
-            GUILayout.Space(10);
+            GUILayout.Space(5);
 
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            GUILayout.Label("For help, see");
-            if (GUILayout.Button("here", EditorStyles.linkLabel))
+            if (GUILayout.Button("Visual Scripting", GUILayout.Height(30)))
             {
-                Application.OpenURL("https://docs.dolby.io/communications-apis/docs/guides-api-authentication#locating-your-app-key-and-app-secret");
+                Application.OpenURL("https://api-references.dolby.io/comms-sdk-dotnet/documentation/unity/visualscripting/nodes.html");
             }
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
+
+            //GUILayout.Space(20);
+
+            //GUILayout.BeginHorizontal();
+            //GUILayout.FlexibleSpace();
+            //GUILayout.Label("You can find your App Key in the Dolby.io dashboard at");
+            //if (GUILayout.Button("https://dashboard.dolby.io", EditorStyles.linkLabel))
+            //{
+            //    Application.OpenURL("https://dashboard.dolby.io");
+            //}
+            //GUILayout.FlexibleSpace();
+            //GUILayout.EndHorizontal();
+
+            //GUILayout.Space(10);
+
+            //GUILayout.BeginHorizontal();
+            //GUILayout.FlexibleSpace();
+            //GUILayout.Label("For help, see");
+            //if (GUILayout.Button("here", EditorStyles.linkLabel))
+            //{
+            //    Application.OpenURL("https://docs.dolby.io/communications-apis/docs/guides-api-authentication#locating-your-app-key-and-app-secret");
+            //}
+            //GUILayout.FlexibleSpace();
+            //GUILayout.EndHorizontal();
         }
 
         #region Utilities
