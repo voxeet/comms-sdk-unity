@@ -20,7 +20,7 @@ public class App : MonoBehaviour
 
         await _sdk.Session.OpenAsync(new UserInfo { Name = "Anonymous" });
 
-        _sdk.Conference.ParticipantUpdated = OnParticipantUpdated;
+        _sdk.Conference.ParticipantUpdated += OnParticipantUpdated;
 
         await _sdk.Conference.DemoAsync(SpatialAudioStyle.Shared);
     }
