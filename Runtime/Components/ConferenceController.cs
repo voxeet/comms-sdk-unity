@@ -48,9 +48,9 @@ namespace DolbyIO.Comms.Unity
         {
             if (_sdk.IsInitialized)
             {
-                _sdk.Conference.VideoTrackAdded = HandleVideoTrackAdded;
-                _sdk.Conference.VideoTrackRemoved = HandleVideoTrackRemoved;
-                _sdk.Conference.ParticipantUpdated = HandleParticipantUpdated;
+                _sdk.Conference.VideoTrackAdded += HandleVideoTrackAdded;
+                _sdk.Conference.VideoTrackRemoved += HandleVideoTrackRemoved;
+                _sdk.Conference.ParticipantUpdated += HandleParticipantUpdated;
             }
 
             if (AutoJoin)

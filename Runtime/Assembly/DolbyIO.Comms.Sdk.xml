@@ -333,6 +333,21 @@
             Receive a realtime mixed stream.
             </summary>
         </member>
+        <member name="T:DolbyIO.Comms.ScreenShareType">
+            <summary>
+            The possible screen share source types.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ScreenShareType.Screen">
+            <summary>
+            Entire monitor or display screen.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ScreenShareType.Window">
+            <summary>
+            Single applicaton window.
+            </summary>
+        </member>
         <member name="T:DolbyIO.Comms.VideoFrame">
             <summary>
             The VideoFrame object wraps the decoded ARGB8888 video frames.
@@ -776,6 +791,26 @@
             A boolean indicating whether the track is from a remote participant.
             </summary>
         </member>
+        <member name="T:DolbyIO.Comms.ScreenShareSource">
+            <summary>
+            The description of a source for screen sharing.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ScreenShareSource.Title">
+            <summary>
+            Title of the source.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ScreenShareSource.Id">
+            <summary>
+            Id of the source.
+            </summary>
+        </member>
+        <member name="F:DolbyIO.Comms.ScreenShareSource.Type">
+            <summary>
+            Type of the screen share.
+            </summary>
+        </member>
         <member name="T:DolbyIO.Comms.RefreshTokenCallBack">
             <summary>
             The refresh token callback that is required by <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)">Session.Init</see>.
@@ -784,39 +819,39 @@
         </member>
         <member name="T:DolbyIO.Comms.SignalingChannelErrorEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.DolbyIOSDK.SignalingChannelError">DolbyIOSDK.SignalingChannelError</see> event handler.
+            The <see cref="E:DolbyIO.Comms.DolbyIOSDK.SignalingChannelError">DolbyIOSDK.SignalingChannelError</see> event handler.
             </summary>
             <param name="message">The reason for the error.</param>
         </member>
         <member name="T:DolbyIO.Comms.InvalidTokenErrorEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.DolbyIOSDK.InvalidTokenError">DolbyIOSDK.InvalidTokenError</see> handler.
+            The <see cref="E:DolbyIO.Comms.DolbyIOSDK.InvalidTokenError">DolbyIOSDK.InvalidTokenError</see> handler.
             </summary>
             <param name="reason">The reason for the error.</param>
             <param name="description">An additional description of the error.</param>
         </member>
         <member name="T:DolbyIO.Comms.ConferenceStatusUpdatedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.StatusUpdated">Conference.StatusUpdated</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.StatusUpdated">Conference.StatusUpdated</see> event handler.
             </summary>
             <param name="status">The status of the conference.</param>
             <param name="conferenceId">The corresponding conference ID.</param>
         </member>
         <member name="T:DolbyIO.Comms.ParticipantAddedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.ParticipantAdded">Conference.ParticipantAdded</see> event handler. 
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.ParticipantAdded">Conference.ParticipantAdded</see> event handler. 
             </summary>
             <param name="participant">The added participant.</param>
         </member>
         <member name="T:DolbyIO.Comms.ParticipantUpdatedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.ParticipantUpdated">Conference.ParticipantUpdated</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.ParticipantUpdated">Conference.ParticipantUpdated</see> event handler.
             </summary>
             <param name="participant">The participant who changed status.</param>
         </member>
         <member name="T:DolbyIO.Comms.ActiveSpeakerChangeEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.ActiveSpeakerChange">Conference.ActiveSpeakerChange</see> event handler. 
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.ActiveSpeakerChange">Conference.ActiveSpeakerChange</see> event handler. 
             </summary>
             <param name="conferenceId">The corresponding conference ID.</param>
             <param name="count">The number of active speakers.</param>
@@ -824,7 +859,7 @@
         </member>
         <member name="T:DolbyIO.Comms.ConferenceMessageReceivedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.MessageReceived">Conference.MessageReceived</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.MessageReceived">Conference.MessageReceived</see> event handler.
             </summary>
             <param name="conferenceId">The conference ID.</param>
             <param name="userId">The ID of the participant who sent the message.</param>
@@ -833,7 +868,7 @@
         </member>
         <member name="T:DolbyIO.Comms.ConferenceInvitationReceivedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.InvitationReceived">Conference.InvitationReceived</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.InvitationReceived">Conference.InvitationReceived</see> event handler.
             </summary>
             <param name="conferenceId">The conference ID.</param>
             <param name="conferenceAlias">The conference alias.</param>
@@ -841,62 +876,62 @@
         </member>
         <member name="T:DolbyIO.Comms.DvcErrorEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.DvcError">Conference.DvcError</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.DvcError">Conference.DvcError</see> event handler.
             </summary>
             <param name="reason">The reason for the error.</param>
         </member>
         <member name="T:DolbyIO.Comms.PeerConnectionErrorEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.PeerConnectionError">Conference.PeerConnectionError</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.PeerConnectionError">Conference.PeerConnectionError</see> event handler.
             </summary>
             <param name="reason">The reason for the error.</param>
         </member>
         <member name="T:DolbyIO.Comms.VideoTrackAddedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.VideoTrackAdded">Conference.VideoTrackAdded</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.VideoTrackAdded">Conference.VideoTrackAdded</see> event handler.
             </summary>
             <param name="track">The added video track</param>
         </member>
         <member name="T:DolbyIO.Comms.VideoTrackRemovedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.ConferenceService.VideoTrackRemoved">Conference.VideoTrackRemoved</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.ConferenceService.VideoTrackRemoved">Conference.VideoTrackRemoved</see> event handler.
             </summary>
             <param name="track">The removed video track</param>
         </member>
         <member name="T:DolbyIO.Comms.AudioDeviceAddedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceAdded">MediaDevice.AudioAdded</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceAdded">MediaDevice.AudioAdded</see> event handler.
             </summary>
             <param name="device">The added audio device.</param>
         </member>
         <member name="T:DolbyIO.Comms.AudioDeviceRemovedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceRemoved">MediaDevice.AudioRemoved</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceRemoved">MediaDevice.AudioRemoved</see> event handler.
             </summary>
             <param name="id">A unique device identifier of the removed audio device.</param>
         </member>
         <member name="T:DolbyIO.Comms.AudioDeviceChangedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceChanged">MediaDevice.AudioChanged</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceChanged">MediaDevice.AudioChanged</see> event handler.
             </summary>
             <param name="id">The changed audio device identity.</param>
             <param name="noDevice">A boolean indicating whether there is a device in use for the current direction. True if there is no device; otherwise, false.</param>
         </member>
         <member name="T:DolbyIO.Comms.VideoDeviceAddedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceAdded">MediaDevice.VideoAdded</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceAdded">MediaDevice.VideoAdded</see> event handler.
             </summary>
             <param name="device">The added video device.</param>
         </member>
         <member name="T:DolbyIO.Comms.VideoDeviceChangedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceChanged">MediaDevice.VideoChanged</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceChanged">MediaDevice.VideoChanged</see> event handler.
             </summary>
             <param name="device">The new video device.</param>
         </member>
         <member name="T:DolbyIO.Comms.VideoDeviceRemovedEventHandler">
             <summary>
-            The <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceRemoved">MediaDevice.VideoRemoved</see> event handler.
+            The <see cref="E:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceRemoved">MediaDevice.VideoRemoved</see> event handler.
             </summary>
             <param name="uid">A unique device identifier of the removed video device.</param>
         </member>
@@ -964,19 +999,19 @@
             
              To use the conference service, follow these steps:
              1. Open a session using <see cref="M:DolbyIO.Comms.Services.SessionService.OpenAsync(DolbyIO.Comms.UserInfo)"/> from the <see cref="T:DolbyIO.Comms.Services.SessionService"/>..
-             2. Subscribe to events exposed through the service, for example <see cref="P:DolbyIO.Comms.Services.ConferenceService.StatusUpdated"/> and <see cref="P:DolbyIO.Comms.Services.ConferenceService.ParticipantUpdated"/>.
+             2. Subscribe to events exposed through the service, for example <see cref="E:DolbyIO.Comms.Services.ConferenceService.StatusUpdated"/> and <see cref="E:DolbyIO.Comms.Services.ConferenceService.ParticipantUpdated"/>.
              3. Create a conference using the <see cref="M:DolbyIO.Comms.Services.ConferenceService.CreateAsync(DolbyIO.Comms.ConferenceOptions)"/> method.
              4. Join the created conference using the <see cref="M:DolbyIO.Comms.Services.ConferenceService.JoinAsync(DolbyIO.Comms.Conference,DolbyIO.Comms.JoinOptions)"/> method or use the <see cref="M:DolbyIO.Comms.Services.ConferenceService.ListenAsync(DolbyIO.Comms.Conference,DolbyIO.Comms.ListenOptions)"/> method to join the conference as a listener.
              5. Leave the conference using the <see cref="M:DolbyIO.Comms.Services.ConferenceService.LeaveAsync"/> method.
              </summary>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.StatusUpdated">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.StatusUpdated">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.ConferenceStatusUpdatedEventHandler"/> that is raised when a conference status has changed.
             See <see cref="T:DolbyIO.Comms.ConferenceStatus">ConferenceStatus</see>
             <example>
             <code>
-            _sdk.Conference.StatusUpdated = delegate (ConferenceStatus status, string conferenceId) 
+            _sdk.Conference.StatusUpdated += (ConferenceStatus status, string conferenceId) =>
             {
             
             }
@@ -985,12 +1020,12 @@
             </summary>
             <value>The <see cref="T:DolbyIO.Comms.ConferenceStatusUpdatedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.ParticipantAdded">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.ParticipantAdded">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.ParticipantAddedEventHandler"/> that is raised when a new participant has been added to a conference.
             <example>
             <code>
-            _sdk.Conference.ParticipantAdded = (Participant participant) => 
+            _sdk.Conference.ParticipantAdded += (Participant participant) => 
             {
             
             }
@@ -999,12 +1034,12 @@
             </summary>
             <value>The <see cref="T:DolbyIO.Comms.ParticipantAddedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.ParticipantUpdated">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.ParticipantUpdated">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.ParticipantUpdatedEventHandler"/> that is raised when a conference participant has changed a status.
             <example>
             <code>
-            _sdk.Conference.ParticipantUpdated = (Participant participant) =>
+            _sdk.Conference.ParticipantUpdated += (Participant participant) =>
             {
             
             }
@@ -1013,12 +1048,12 @@
             </summary>
             <value>The <see cref="T:DolbyIO.Comms.ParticipantUpdatedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.ActiveSpeakerChange">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.ActiveSpeakerChange">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.ActiveSpeakerChangeEventHandler"/> that is raised when an active speaker has changed.
             <example>
             <code>
-            _sdk.Conference.ActiveSpeakerChange = (string conferenceId, int count, string[] activeSpeakers) => 
+            _sdk.Conference.ActiveSpeakerChange += (string conferenceId, int count, string[] activeSpeakers) => 
             {
             
             }
@@ -1027,13 +1062,13 @@
             </summary>
             <value>The <see cref="T:DolbyIO.Comms.ActiveSpeakerChangeEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.MessageReceived">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.MessageReceived">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.ConferenceMessageReceivedEventHandler"/> that is raised when a participant receives a message.
             </summary>
             <example>
             <code>
-            _sdk.Conference.MessageReceived = (string conferenceId, string userId, ParticipantInfo info, string message) =>
+            _sdk.Conference.MessageReceived += (string conferenceId, string userId, ParticipantInfo info, string message) =>
             {
             
             }
@@ -1041,13 +1076,13 @@
             </example>
             <value>The <see cref="T:DolbyIO.Comms.ConferenceMessageReceivedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.InvitationReceived">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.InvitationReceived">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.ConferenceInvitationReceivedEventHandler"/> that is raised when a participant receives a conference invitation.
             </summary>
             <example>
             <code>
-            _sdk.Conference.InvitationReceived = (string conferenceId, string conferenceAlias, ParticipantInfo info) =>
+            _sdk.Conference.InvitationReceived += (string conferenceId, string conferenceAlias, ParticipantInfo info) =>
             {
             
             }
@@ -1055,13 +1090,13 @@
             </example>
             <value>The <see cref="T:DolbyIO.Comms.ConferenceInvitationReceivedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.DvcError">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.DvcError">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.DvcErrorEventHandler"/> that is raised when an error related to the Dolby Voice Codec (DVC) occurs.
             </summary>
             <example>
             <code>
-            _sdk.Conference.DvcError = (string reason) =>
+            _sdk.Conference.DvcError += (string reason) =>
             {
             
             }
@@ -1069,13 +1104,13 @@
             </example>
             <value>The <see cref="T:DolbyIO.Comms.DvcErrorEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.PeerConnectionError">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.PeerConnectionError">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.PeerConnectionErrorEventHandler"/> that is raised when a peer connection problem occurs.
             </summary>
             <example>
             <code>
-            _sdk.Conference.PeerConnectionError = (string reason, string description) =>
+            _sdk.Conference.PeerConnectionError += (string reason, string description) =>
             {
             
             }
@@ -1083,12 +1118,12 @@
             </example>
             <value>The <see cref="T:DolbyIO.Comms.PeerConnectionErrorEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.VideoTrackAdded">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.VideoTrackAdded">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.VideoTrackAddedEventHandler"/> that is raised when a <see cref="T:DolbyIO.Comms.VideoTrack"/> is added.
             </summary>
         </member>
-        <member name="P:DolbyIO.Comms.Services.ConferenceService.VideoTrackRemoved">
+        <member name="E:DolbyIO.Comms.Services.ConferenceService.VideoTrackRemoved">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.VideoTrackRemovedEventHandler"/> that is raised when a <see cref="T:DolbyIO.Comms.VideoTrack"/> is removed.
             </summary>
@@ -1232,40 +1267,40 @@
              1. Get all current audio devices using the <see cref="M:DolbyIO.Comms.Services.MediaDeviceService.GetAudioDevicesAsync"/> method.
              2. Set the desired input audio device by calling the <see cref="M:DolbyIO.Comms.Services.MediaDeviceService.SetPreferredAudioInputDeviceAsync(DolbyIO.Comms.AudioDevice)"/> method.
              3. Set the desired output audio device by calling the <see cref="M:DolbyIO.Comms.Services.MediaDeviceService.SetPreferredAudioOutputDeviceAsync(DolbyIO.Comms.AudioDevice)"/> method.
-             4. Subscribe to the <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceAdded"/>, <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceRemoved"/>, and <see cref="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceChanged"/> events.
+             4. Subscribe to the <see cref="E:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceAdded"/>, <see cref="E:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceRemoved"/>, and <see cref="E:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceChanged"/> events.
              </summary>
         </member>
-        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceAdded">
+        <member name="E:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceAdded">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.AudioDeviceAddedEventHandler"/> that is raised when a new audio device is added to the system.
             </summary>
             <value>The <see cref="T:DolbyIO.Comms.AudioDeviceAddedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceRemoved">
+        <member name="E:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceRemoved">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.AudioDeviceRemovedEventHandler"/> that is raised when an audio device is removed from the system.
             </summary>
             <value>The <see cref="T:DolbyIO.Comms.AudioDeviceRemovedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceChanged">
+        <member name="E:DolbyIO.Comms.Services.MediaDeviceService.AudioDeviceChanged">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.AudioDeviceChangedEventHandler"/> that is raised when the currently used input or output audio device has changed.
             </summary>
             <value>The <see cref="T:DolbyIO.Comms.AudioDeviceChangedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceAdded">
+        <member name="E:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceAdded">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.VideoDeviceAddedEventHandler"/> that is raised when a new video device is added to the system.
             </summary>
             <value>The <see cref="T:DolbyIO.Comms.AudioDeviceAddedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceChanged">
+        <member name="E:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceChanged">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.VideoDeviceChangedEventHandler"/> that is raised when the currently used input or output video device has changed.
             </summary>
             <value>The <see cref="T:DolbyIO.Comms.VideoDeviceChangedEventHandler"/> event handler.</value>
         </member>
-        <member name="P:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceRemoved">
+        <member name="E:DolbyIO.Comms.Services.MediaDeviceService.VideoDeviceRemoved">
             <summary>
             Sets the <see cref="T:DolbyIO.Comms.VideoDeviceRemovedEventHandler"/> that is raised when a video device is removed from the system.
             </summary>
@@ -1321,6 +1356,13 @@
             </summary>
             <returns>The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the <see cref="T:DolbyIO.Comms.VideoDevice">video device</see>
             that is currently used by the system.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.MediaDeviceService.GetScreenShareSourcesAsync">
+            <summary>
+            Get a list of all possible Screen Sharing sources. This can be both entire
+            monitor screens or specific active application windows.
+            </summary>
+            <returns>The <xref href="System.Threading.Tasks.Task`1.Result"/> property returns the <see cref="T:DolbyIO.Comms.ScreenShareSource">screen share source</see> list.</returns>
         </member>
         <member name="T:DolbyIO.Comms.Services.AudioService">
             <summary>
@@ -1498,6 +1540,31 @@
             </summary>
             <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
         </member>
+        <member name="M:DolbyIO.Comms.Services.LocalVideoService.StartScreenShareAsync(DolbyIO.Comms.ScreenShareSource,DolbyIO.Comms.VideoFrameHandler)">
+             <summary>
+             Starts local capture of screen share.
+            
+             This method may be called only if a conference is active.
+            
+             This method can also be used to switch screen share sources at any point. If you have passed in a
+             <xref href="VideoFrameHandler"/> to the previous start call and would like to continue using this handler, you must pass the
+             same handler into the subsequent call used to switch sources. This will have the effect of just switching sources,
+             keeping the rest of the pipeline in tact.
+            
+             The SDK supports switching seamlesly between various screen capture sources, without readding a video track
+             to the peer connection. However, if switching from low resolution Window capture to high resolution Fullscreen
+             capture the Window capture screen share must be stopped before the Fullscreen capture can be started.
+             </summary>
+             <param name="source">The screen source to capture from.</param>
+             <param name="handler">The video frames handler.</param>
+             <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:DolbyIO.Comms.Services.LocalVideoService.StopScreenShareAsync">
+            <summary>
+            Stops the screen share capture.
+            </summary>
+            <returns>A <xref href="System.Threading.Tasks.Task"/> that represents the asynchronous operation.</returns>
+        </member>
         <member name="T:DolbyIO.Comms.Services.RemoteVideoService">
             <summary>
             The RemoteVideoService allows the local participant to locally start and stop remote participants` video streams transmission.
@@ -1520,7 +1587,7 @@
         </member>
         <member name="F:DolbyIO.Comms.ComponentName.Unity">
             <summary>
-            The unity component name.
+            The Unity component name.
             </summary>
         </member>
         <member name="F:DolbyIO.Comms.ComponentName.Dotnet">
@@ -1544,7 +1611,7 @@
             Main entry point that allows the application to interact with the Dolby.io services.
             </summary>
         </member>
-        <member name="P:DolbyIO.Comms.DolbyIOSDK.SignalingChannelError">
+        <member name="E:DolbyIO.Comms.DolbyIOSDK.SignalingChannelError">
             <summary>
             Raised when an error occurs during a Session Initiation Protocol (SIP) negotiation
             of the local participant's peer connection.
@@ -1552,7 +1619,7 @@
             <value>The <see cref="T:DolbyIO.Comms.SignalingChannelErrorEventHandler"/> event handler raised when an error occurs.</value>
             <exception cref="T:DolbyIO.Comms.DolbyIOException">Is thrown when <see cref="M:DolbyIO.Comms.DolbyIOSDK.InitAsync(System.String,DolbyIO.Comms.RefreshTokenCallBack)"/> has not yet been called.</exception>
         </member>
-        <member name="P:DolbyIO.Comms.DolbyIOSDK.InvalidTokenError">
+        <member name="E:DolbyIO.Comms.DolbyIOSDK.InvalidTokenError">
             <summary>
             Raised when the access token is invalid or has expired.
             </summary>
