@@ -86,7 +86,7 @@ namespace DolbyIO.Comms.Unity.Editor
             GUILayout.FlexibleSpace();
             if (GUILayout.Button("How to get an App Key", GUILayout.Height(30)))
             {
-                Application.OpenURL("https://docs.dolby.io/communications-apis/docs/guides-app-credentials");
+                Application.OpenURL("https://docs.dolby.io/communications-apis/page/registering-your-application-in-the-unity-editor");
             }
 
             GUILayout.Space(60);
