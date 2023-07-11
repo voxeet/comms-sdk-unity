@@ -36,7 +36,6 @@ namespace DolbyIO.Comms.Unity.Editor
                     WelcomeWindow.Initialize();
                 }
             }
-
         }
 
         public static void Initialize()
