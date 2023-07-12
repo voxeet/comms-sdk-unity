@@ -11,9 +11,8 @@ You can find the plugin documentation here: [Online documentation](https://api-r
 - Install `git-lfs` command line tool on your computer.
 
 ### How to install
-You can install the plugin from the Unity Package Manager.
 
-Open the Package Manager from the Unity Editor and click the ➕ icon in the upper left corner.
+In the Unity Editor, open the Unity Package Manager from the Window menu. If the plugin is already installed, it will be in the “All Assets” list. Otherwise, click the ➕ icon in the upper left corner.
 
 **Option 1. Install from GitHub**
 

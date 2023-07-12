@@ -1,5 +1,6 @@
 {
     "name": "DolbyI0.Comms.Unity",
+    "rootNamespace": "",
     "references": [
         "Unity.VisualScripting.Core",
         "Unity.VisualScripting.Core.Editor",
@@ -7,7 +8,8 @@
         "Unity.VisualScripting.Flow.Editor",
         "Unity.VisualScripting.Shared.Editor",
         "Unity.VisualScripting.State",
-        "Unity.VisualScripting.State.Editor"
+        "Unity.VisualScripting.State.Editor",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

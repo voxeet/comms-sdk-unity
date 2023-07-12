@@ -4,7 +4,7 @@ using UnityEngine;
 using DolbyIO.Comms;
 using DolbyIO.Comms.Unity;
 
-public class App : MonoBehaviour
+public class App : Credentials
 {
     private DolbyIOSDK _sdk = DolbyIOManager.Sdk;
 
@@ -14,13 +14,9 @@ public class App : MonoBehaviour
     // Start is called before the first frame update
     async void Start()
     {
-        await _sdk.InitAsync(Token, () => {
-            return Token;
-        });
-
         await _sdk.Session.OpenAsync(new UserInfo { Name = "Anonymous" });
 
-        _sdk.Conference.ParticipantUpdated = OnParticipantUpdated;
+        _sdk.Conference.ParticipantUpdated += OnParticipantUpdated;
 
         await _sdk.Conference.DemoAsync(SpatialAudioStyle.Shared);
     }
@@ -29,6 +25,11 @@ public class App : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public override string GetToken()
+    {
+        return Token;
     }
 
     private void OnParticipantUpdated(Participant p) 

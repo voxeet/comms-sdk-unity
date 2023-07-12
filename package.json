@@ -1,32 +1,42 @@
 {
-  "name": "dolbyio.comms.unity",
-  "version": "1.1.2",
-  "unity": "2021.1",
-  "displayName": "DolbyIO Communications",
-  "description": "The DolbyIO Virtual World Plugin for Unity",
-  "documentationUrl": "https://api-references.dolby.io/comms-sdk-dotnet/documentation/unity/unity.html",
-  "licensesUrl": "https://github.com/DolbyIO/comms-sdk-dotnet/blob/main/LICENSE",
-  "keywords": [
-      "audio",
-      "voice",
-      "spatial"
-  ],
-  "samples": [{
-    "displayName": "Reference Sample Scenes",
-    "description": "Dolby.io Communications samples",
-    "path": "Samples~"
-  }],
-  "author": {
-      "name": "DolbyIO",
-      "email": "customer@dolby.io",
-      "url": "https://github.com/DolbyIO/comms-sdk-dotnet"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/DolbyIO/comms-sdk-dotnet",
-    "directory": "dolbyio.comms.unity"
-  },
-  "dependencies": {
-    "com.unity.nuget.newtonsoft-json": "3.0.2"
-  }
+    "name": "dolbyio.comms.unity",
+    "version": "1.2.0",
+    "unity": "2021.1",
+    "displayName": "DolbyIO Communications",
+    "description": "The DolbyIO Virtual World Plugin for Unity",
+    "documentationUrl": "https://api-references.dolby.io/comms-sdk-dotnet/documentation/unity/getting-started/installation.html",
+    "changelogUrl": "https://github.com/DolbyIO/comms-sdk-unity/releases",
+    "licensesUrl": "https://github.com/DolbyIO/comms-sdk-dotnet/blob/main/LICENSE",
+    "keywords": [
+        "audio",
+        "voice",
+        "spatial"
+    ],
+    "samples": [
+        {
+            "displayName": "Shared Scene Sample",
+            "description": "Dolby.io Communications samples",
+            "path": "Samples~/SharedScene"
+        },
+        {
+            "displayName": "2D HUD Sample Scene",
+            "description": "Dolby.io Communications samples",
+            "path": "Samples~/2D HUD"
+        }
+    ],
+    "author": {
+        "name": "DolbyIO",
+        "email": "customer@dolby.io",
+        "url": "https://github.com/DolbyIO/comms-sdk-dotnet"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DolbyIO/comms-sdk-dotnet",
+        "directory": "dolbyio.comms.unity"
+    },
+    "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.visualscripting": "1.8.0",
+        "com.unity.textmeshpro": "3.0.6"
+    }
 }

@@ -60,18 +60,18 @@ namespace DolbyIO.Comms.Unity
                 Debug.LogError("An access token or a method to get an access token must be provided");
             }
           
-            _sdk.Conference.ParticipantAdded = new ParticipantAddedEventHandler(Participant =>
+            _sdk.Conference.ParticipantAdded += new ParticipantAddedEventHandler(Participant =>
             {
                 DolbyIOManager.QueueOnMainThread(() => EventBus.Trigger(EventNames.ParticipantAddedEvent, Participant));
             });
 
-            _sdk.Conference.ParticipantUpdated = new ParticipantUpdatedEventHandler(Participant =>
+            _sdk.Conference.ParticipantUpdated += new ParticipantUpdatedEventHandler(Participant =>
             {
                 DolbyIOManager.QueueOnMainThread(() => EventBus.Trigger(EventNames.ParticipantUpdatedEvent, Participant));
             });
 
             #nullable enable
-            _sdk.Conference.ActiveSpeakerChange = new ActiveSpeakerChangeEventHandler
+            _sdk.Conference.ActiveSpeakerChange += new ActiveSpeakerChangeEventHandler
             (
                 (string conferenceId, int count, string[]? ids) =>
                 {
@@ -86,7 +86,7 @@ namespace DolbyIO.Comms.Unity
                 }
             );
 
-            _sdk.Conference.StatusUpdated = new ConferenceStatusUpdatedEventHandler
+            _sdk.Conference.StatusUpdated += new ConferenceStatusUpdatedEventHandler
             (
                 (ConferenceStatus status, string conferenceId) =>
                 {
@@ -94,15 +94,15 @@ namespace DolbyIO.Comms.Unity
                 }
             );
 
-            _sdk.MediaDevice.AudioDeviceChanged = new AudioDeviceChangedEventHandler
+            _sdk.MediaDevice.AudioDeviceChanged += new AudioDeviceChangedEventHandler
             (
-                (AudioDevice device, bool noDevice) =>
+                (DeviceIdentity device, bool noDevice) =>
                 {
                     DolbyIOManager.QueueOnMainThread(() => EventBus.Trigger(EventNames.AudioDeviceChangedEvent, device));
                 }
             );
 
-            _sdk.MediaDevice.AudioDeviceAdded = new AudioDeviceAddedEventHandler
+            _sdk.MediaDevice.AudioDeviceAdded += new AudioDeviceAddedEventHandler
             (
                 (AudioDevice device) =>
                 {
@@ -110,7 +110,7 @@ namespace DolbyIO.Comms.Unity
                 }
             );
 
-            _sdk.InvalidTokenError = new InvalidTokenErrorEventHandler
+            _sdk.InvalidTokenError += new InvalidTokenErrorEventHandler
             (
                 (string reason, string description) => 
                 {
@@ -118,7 +118,7 @@ namespace DolbyIO.Comms.Unity
                 }
             );
 
-            _sdk.SignalingChannelError = new SignalingChannelErrorEventHandler
+            _sdk.SignalingChannelError += new SignalingChannelErrorEventHandler
             (
                 (string message) => 
                 {

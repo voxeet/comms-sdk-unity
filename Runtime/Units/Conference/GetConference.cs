@@ -27,12 +27,12 @@ namespace DolbyIO.Comms.Unity
             InputTrigger = ControlInput(nameof(InputTrigger), Leave);
             OutputTrigger = ControlOutput(nameof(OutputTrigger));
 
-            Conference = ValueOutput<Conference>(nameof(Conference));
+            Conference = ValueOutput<Comms.Conference>(nameof(Conference));
         }
 
         private ControlOutput Leave(Flow flow)
         {
-            Conference conference = Sdk.Conference.GetCurrentAsync().Result;
+            Comms.Conference conference = Sdk.Conference.GetCurrentAsync().Result;
             flow.SetValue(Conference, conference);
 
             return OutputTrigger;
