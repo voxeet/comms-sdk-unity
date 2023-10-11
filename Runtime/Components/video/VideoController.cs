@@ -36,7 +36,7 @@ namespace DolbyIO.Comms.Unity
         
         private VideoTrack _videoTrack;
 
-        void Awake()
+        public void RegisterController()
         {
             if (Conference)
             {
@@ -44,7 +44,7 @@ namespace DolbyIO.Comms.Unity
             }
         }
 
-        void Start()
+        public void CreateRenderer()
         {
             var renderer = gameObject.GetComponent<Renderer>();
 
@@ -52,6 +52,16 @@ namespace DolbyIO.Comms.Unity
             {
                 VideoRenderer = new VideoRenderer(renderer.material);
             }
+        }
+
+        void Awake()
+        {
+            RegisterController();
+        }
+
+        void Start()
+        {
+            CreateRenderer();
         }
 
         private void Update()
