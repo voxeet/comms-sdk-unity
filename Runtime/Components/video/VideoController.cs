@@ -41,6 +41,8 @@ namespace DolbyIO.Comms.Unity
             if (Conference)
             {
                 Conference.RegisterVideoController(this);
+            }else{
+                Debug.LogWarning("No conference found on VideoController");
             }
         }
 
@@ -51,6 +53,8 @@ namespace DolbyIO.Comms.Unity
             if (renderer)
             {
                 VideoRenderer = new VideoRenderer(renderer.material);
+            }else{
+                Debug.LogWarning("No renderer found on VideoController");
             }
         }
 
@@ -82,7 +86,11 @@ namespace DolbyIO.Comms.Unity
                         Debug.LogWarning(t.Exception.Message);
                     },
                     TaskContinuationOptions.OnlyOnFaulted);
+                }else{
+                    // Debug.LogWarning("No participant id found on video track");
                 }
+            }else{
+                // Debug.LogWarning("Video track already set");
             }
         }
     }
