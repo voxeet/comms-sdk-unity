@@ -46,16 +46,28 @@ namespace DolbyIO.Comms.Unity
 
         void Start()
         {
+            InitialiseConference();
+        }
+
+        public void InitialiseConference(){
             if (_sdk.IsInitialized)
             {
+                if(_sdk.Conference == null){
+                    Debug.LogWarning("Attempting to set delegates on conference but it does not exist");
+                    return;
+                }
+
+                // _sdk.Conference.StatusUpdated += ConferenceStatusUpdated;
                 _sdk.Conference.VideoTrackAdded += HandleVideoTrackAdded;
                 _sdk.Conference.VideoTrackRemoved += HandleVideoTrackRemoved;
                 _sdk.Conference.ParticipantUpdated += HandleParticipantUpdated;
-            }
 
-            if (AutoJoin)
-            {
-                Join();   
+                if (AutoJoin)
+                {
+                    Join();   
+                }
+            }else{
+                Debug.LogWarning("SDK not initialized");
             }
         }
 
@@ -218,11 +230,17 @@ namespace DolbyIO.Comms.Unity
         /// Controllers will register themself to the Conference Controller during the Awake phase.
         internal void RegisterVideoController(VideoController controller)
         {
+            // Debug.Log("Registering VideoController for : "+controller.Filter);
             _videoControllers.Add(controller);
         }
 
+        // private void ConferenceStatusUpdated(ConferenceStatus status, string conferenceId){
+        //     Debug.Log("Conference status updated: " + status);
+        // }
+
         private void HandleVideoTrackAdded(VideoTrack track)
         {
+            // Debug.Log("VideoTrack Added: " + track.ParticipantId);
             _tracks.Add(track);
             UpdateVideoControllers().ContinueWith(t =>
             {
@@ -233,6 +251,7 @@ namespace DolbyIO.Comms.Unity
 
         private void HandleVideoTrackRemoved(VideoTrack track)
         {
+            // Debug.Log("VideoTrack Removed: " + track.ParticipantId);
             _tracks.Remove(track);
             UpdateVideoControllers().ContinueWith(t =>
             {
@@ -243,6 +262,8 @@ namespace DolbyIO.Comms.Unity
 
         private void HandleParticipantUpdated(Participant p)
         {
+            // Debug.Log("Participant updated: " + p.Status);
+
             if (ParticipantStatus.OnAir == p.Status)
             {
                 UpdateVideoControllers().ContinueWith(t =>
@@ -257,19 +278,24 @@ namespace DolbyIO.Comms.Unity
         {
             if (!_sdk.Conference.IsInConference)
             {
+                Debug.LogWarning("Attempting to update video controllers but not in conference");
+                return;
+            }
+            Debug.Log("Updating VideoControllers");
+            var participants = await _sdk.Conference.GetParticipantsAsync();
+            if(participants == null){
+                Debug.LogWarning("Attempting to update video controllers but no participants found");
                 return;
             }
 
-            var participants = await _sdk.Conference.GetParticipantsAsync();
+            if(_videoControllers.Count == 0){
+                Debug.LogWarning("No video controllers found");
+                return;
+            }
             
             foreach(var c in _videoControllers)
             {
                 string participantId = "";
-
-                if (c.IsLocal)
-                {
-                    return;
-                }
 
                 switch (c.FilterBy)
                 {
@@ -292,10 +318,21 @@ namespace DolbyIO.Comms.Unity
                         break;
                 }
 
-                if (!String.IsNullOrEmpty(participantId))
+                if (!String.IsNullOrEmpty(participantId) && !c.IsLocal)
                 {
+                    // Debug.Log("Updating track for participant: " + participantId);
                     VideoTrack track = _tracks.Find(t => t.ParticipantId.Equals(participantId));
+                    if(track.Equals(null)){
+                        Debug.LogWarning("No video track found for participant: " + participantId);
+                        return;
+                    }
                     c.UpdateTrack(track);
+                }else{
+                    if(c.IsLocal){
+                        Debug.Log("Found local video controller for : "+c.Filter);
+                    }else{
+                        Debug.LogWarning("No participant ID found for player: " + c.Filter);
+                    }
                 }
             }
 
