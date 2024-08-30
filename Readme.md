@@ -1,3 +1,5 @@
+# :warning: This repository is no longer maintained :warning:
+
 # Dolby.io Virtual World plugin for Unity
 
 With the Dolby.io Virtual World plugin for Unity, you can easily integrate Dolby.io Spatial Audio, powered by Dolby Atmos technology into your virtual world applications.
